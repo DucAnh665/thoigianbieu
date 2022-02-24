@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Calendar"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="#00CC00">
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/previousBtn"
+        android:layout_margin="10dp"
+        android:background="@drawable/pre"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp"
+        android:text="Lịch học"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_weight="3"/>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/nextBtn"
+            android:layout_margin="10dp"
+            android:background="@drawable/next"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="#009900"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Thứ 2"
+            android:background="@color/white"
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+
+           />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Thứ 3"
+            android:background=""
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Thứ 4"
+            android:background=""
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Thứ 5"
+        android:background=""
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Thứ 6"
+            android:background=""
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Thứ 7"
+            android:background=""
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Chủ nhật"
+            android:background=""
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+
+
+    </LinearLayout>
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridview"
+        android:numColumns="7"
+        >
+
+    </GridView>
+</LinearLayout>

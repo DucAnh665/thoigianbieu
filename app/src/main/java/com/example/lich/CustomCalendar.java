@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -37,6 +38,9 @@ public class CustomCalendar extends LinearLayout {
     List<TKB> tkb = new ArrayList<>();
 
 
+    Button tien,lui;
+
+
     public CustomCalendar(Context context) {
         super(context);
     }
@@ -57,6 +61,25 @@ public class CustomCalendar extends LinearLayout {
         View view = inflater.inflate(R.layout.lich,this);
         grid = view.findViewById(R.id.grid);
         ngay = view.findViewById(R.id.ngaythangnam);
+        tien = view.findViewById(R.id.tien);
+        lui = view.findViewById(R.id.lui);
+
+
+        lui.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calendar.add(Calendar.MONTH,-1);
+                caidatlich();
+            }
+        });
+
+        tien.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calendar.add(Calendar.MONTH,+1);
+                caidatlich();
+            }
+        });
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -68,8 +91,6 @@ public class CustomCalendar extends LinearLayout {
                 ngay.setText(dayone+"/"+curmont+"/"+curyear);
             }
         });
-
-
     }
     private void caidatlich()
     {
@@ -91,8 +112,5 @@ public class CustomCalendar extends LinearLayout {
         }
         da = new MyGridAdapter(context,dates,calendar,tkb);
         grid.setAdapter(da);
-
-
-
     }
 }

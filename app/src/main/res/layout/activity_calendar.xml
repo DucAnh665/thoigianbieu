@@ -60,65 +60,65 @@
 
            />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Thứ 3"
-            android:background=""
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Thứ 3"-->
+<!--            android:background=""-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textStyle="bold"/>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Thứ 4"
-            android:background=""
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Thứ 4"-->
+<!--            android:background=""-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textStyle="bold"/>-->
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Thứ 5"
-        android:background=""
-        android:layout_marginTop="4dp"
-        android:layout_weight="1"
-        android:textStyle="bold"/>
+<!--        <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Thứ 5"-->
+<!--        android:background=""-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:textStyle="bold"/>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Thứ 6"
-            android:background=""
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Thứ 6"-->
+<!--            android:background=""-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textStyle="bold"/>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Thứ 7"
-            android:background=""
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Thứ 7"-->
+<!--            android:background=""-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textStyle="bold"/>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Chủ nhật"
-            android:background=""
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Chủ nhật"-->
+<!--            android:background=""-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textStyle="bold"/>-->
 
 
     </LinearLayout>

@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/activity_listivewtkb.xml" value="0.10572916666666667" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/activity_main.xml" value="0.10572916666666667" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/ctlich.xml" value="0.10572916666666667" />
+        <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/activity_calendar.xml" value="0.1828125" />
+        <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/activity_listivewtkb.xml" value="0.2203125" />
+        <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/ctlich.xml" value="0.1828125" />
+        <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/cttkb.xml" value="0.2203125" />
+        <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/lich.xml" value="0.2" />
+        <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_dangnhap.xml" value="0.2907608695652174" />
+        <entry key="..\:/thoigianbieu/app/src/main/res/layout/home_calendar.xml" value="0.18795289855072464" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

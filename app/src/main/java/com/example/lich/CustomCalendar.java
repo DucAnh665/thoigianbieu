@@ -1,6 +1,8 @@
 package com.example.lich;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -9,7 +11,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -35,11 +39,14 @@ public class CustomCalendar extends LinearLayout {
     String curmont = " ";
 
     List<Date> dates = new ArrayList<>();
-    List<TKB> tkb = new ArrayList<>();
+    ArrayList<TKB> dulieu = new ArrayList<>();
+
+
+    AdapterThoikhoabieu datkb;
 
 
     Button tien,lui;
-
+    AlertDialog alertDialog;
 
     public CustomCalendar(Context context) {
         super(context);
@@ -48,6 +55,8 @@ public class CustomCalendar extends LinearLayout {
     public CustomCalendar(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
+        dulieu.add(new TKB(1,"Lập trình","12","02","2022","cntt"));
+        dulieu.add(new TKB(1,"Thuật toán","13","03","2022","cntt"));
         khoitao();
         caidatlich();
     }
@@ -89,9 +98,28 @@ public class CustomCalendar extends LinearLayout {
                 int dayno = daycale.get(Calendar.DAY_OF_MONTH);
                 String dayone = String.valueOf(dayno);
                 ngay.setText(dayone+"/"+curmont+"/"+curyear);
+
+            }
+        });
+
+
+        grid.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setCancelable(true);
+                view = LayoutInflater.from(adapterView.getContext()).inflate(R.layout.activity_listivewtkb,null);
+                ListView lvtkb = view.findViewById(R.id.lvtkb);
+                datkb = new AdapterThoikhoabieu(R.layout.cttkb,context,dulieu);
+                lvtkb.setAdapter(datkb);
+                builder.setView(view);
+                alertDialog = builder.create();
+                alertDialog.show();
+                return true;
             }
         });
     }
+
     private void caidatlich()
     {
 
@@ -110,7 +138,9 @@ public class CustomCalendar extends LinearLayout {
             monthca.add(Calendar.DAY_OF_MONTH,1);
 
         }
-        da = new MyGridAdapter(context,dates,calendar,tkb);
+        da = new MyGridAdapter(context,dates,calendar,dulieu);
         grid.setAdapter(da);
+
+
     }
 }

@@ -71,15 +71,15 @@ public class MyGridAdapter extends ArrayAdapter {
         String dayone = String.valueOf(dayno);
         String curyear = YearFormat.format(datecale.getTime());
         String curmonth = monthFormat.format(datecale.getTime());
-//        for (i=0;i<events.size();i++) {
-//            if (events.get(i).getDate().equals(dayone) && events.get(i).getMonth().equals(curmonth)&&events.get(i).getYear().equals(curyear)) {
-//                cout++;
-//                String sukien = String.valueOf(cout);
-//                envenday.setText(sukien + "Sự kiện");
-//                envenday.setVisibility(View.VISIBLE);
-//                view.setBackgroundColor(Color.parseColor("#f11cfe"));
-//            }
-//        }
+        for (i=0;i<events.size();i++) {
+            if (events.get(i).getNgay().equals(dayone) && events.get(i).getThang().equals(curmonth)&&events.get(i).getNam().equals(curyear)) {
+                cout++;
+                String sukien = String.valueOf(cout);
+                envenday.setText(sukien + "Sự kiện");
+                envenday.setVisibility(View.VISIBLE);
+                view.setBackgroundColor(Color.parseColor("#f11cfe"));
+            }
+        }
 
         return view;
     }

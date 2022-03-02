@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/activity_listivewtkb.xml" value="0.10572916666666667" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/activity_main.xml" value="0.10572916666666667" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/ctlich.xml" value="0.10572916666666667" />
         <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/activity_calendar.xml" value="0.1828125" />
+        <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/activity_listivewtkb.xml" value="0.2203125" />
         <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/ctlich.xml" value="0.1828125" />
+        <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/cttkb.xml" value="0.2203125" />
         <entry key="..\:/Users/Dell/Desktop/thoigianbieu/app/src/main/res/layout/lich.xml" value="0.2" />
       </map>
     </option>

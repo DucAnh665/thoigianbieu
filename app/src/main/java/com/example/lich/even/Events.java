@@ -1,4 +1,4 @@
-package com.example.lich;
+package com.example.lich.even;
 
 public class Events {
 

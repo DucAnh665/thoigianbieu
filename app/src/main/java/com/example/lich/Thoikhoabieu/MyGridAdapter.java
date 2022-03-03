@@ -25,6 +25,7 @@ public class MyGridAdapter extends ArrayAdapter {
     Calendar currentdate;
     List<TKB> events;
     LayoutInflater inflater;
+
     public MyGridAdapter(@NonNull Context context,List<Date> dates,Calendar currentdate,List<TKB>events) {
         super(context, R.layout.ctlich);
         this.dates = dates;

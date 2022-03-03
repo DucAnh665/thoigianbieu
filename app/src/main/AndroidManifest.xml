@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lich">
         <activity
+            android:name=".MainDatlich"
+            android:exported="false" />
+        <activity
             android:name=".view.datlich"
             android:exported="false" />
         <activity

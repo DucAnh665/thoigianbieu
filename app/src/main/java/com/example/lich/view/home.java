@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.lich.MainDatlich;
 import com.example.lich.Model.Sinhvien;
 import com.example.lich.R;
 
@@ -36,6 +37,13 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(home.this,MainActivity.class));
+            }
+        });
+
+        Sukien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(home.this, MainDatlich.class));
             }
         });
 

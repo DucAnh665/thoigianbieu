@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -29,9 +30,10 @@ public class CustomDatlich extends LinearLayout {
     Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
     Context context;
     SimpleDateFormat dateFormat = new SimpleDateFormat("MM yyyy",Locale.ENGLISH);
-    SimpleDateFormat monthFormat = new SimpleDateFormat("MM yyyy",Locale.ENGLISH);
-    SimpleDateFormat yearFormat = new SimpleDateFormat("MM yyyy",Locale.ENGLISH);
+    SimpleDateFormat monthFormat = new SimpleDateFormat("MM",Locale.ENGLISH);
+    SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy",Locale.ENGLISH);
 
+    MyGridDatLich myGridDatLich = null;
 
     String ngay = " ",thang = " ";
     String nam = " ";
@@ -47,6 +49,7 @@ public class CustomDatlich extends LinearLayout {
         super(context, attrs);
         this.context = context;
         IntializeLayout();
+        SetUpCalender();
         Pre.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +62,18 @@ public class CustomDatlich extends LinearLayout {
             public void onClick(View view) {
                 calendar.add(Calendar.MONTH,1);
                 SetUpCalender();
+            }
+        });
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Date day = dates.get(i);
+                Calendar daycale = Calendar.getInstance();
+                daycale.setTime(day);
+                int dayno = daycale.get(Calendar.DAY_OF_MONTH);
+                String dayone = String.valueOf(dayno);
+                Current.setText(dayone+"/"+thang+"/"+nam);
+
             }
         });
     }
@@ -95,7 +110,10 @@ public class CustomDatlich extends LinearLayout {
 
         }
 
-
+        myGridDatLich = new MyGridDatLich(context,dates,calendar,eventsList);
+        gridView.setAdapter(myGridDatLich);
 
     }
+
+
 }

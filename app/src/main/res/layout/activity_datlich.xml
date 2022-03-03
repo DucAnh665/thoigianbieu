@@ -21,20 +21,20 @@
         android:background="@drawable/pre"
         android:layout_margin="10dp"
         />
-    <TextView
-        android:id="@+id/current"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="4dp"
-        android:text="lich"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:layout_weight="3"
-        />
 
-    <ImageButton
+        <TextView
+            android:id="@+id/current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="lich"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <ImageButton
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/next"

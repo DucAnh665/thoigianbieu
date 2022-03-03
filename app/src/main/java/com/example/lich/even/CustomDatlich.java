@@ -31,6 +31,10 @@ public class CustomDatlich extends LinearLayout {
     SimpleDateFormat dateFormat = new SimpleDateFormat("MM yyyy",Locale.ENGLISH);
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM yyyy",Locale.ENGLISH);
     SimpleDateFormat yearFormat = new SimpleDateFormat("MM yyyy",Locale.ENGLISH);
+
+
+    String ngay = " ",thang = " ";
+    String nam = " ";
     List<Date> dates = new ArrayList<>();
     List<Events> eventsList = new ArrayList<>();
 
@@ -75,8 +79,23 @@ public class CustomDatlich extends LinearLayout {
     }
     private void SetUpCalender()
     {
-        String current = dateFormat.format(calendar.getTime());
-        Current.setText(current);
+        ngay = dateFormat.format(calendar.getTime());
+        thang = monthFormat.format(calendar.getTime());
+        nam = yearFormat.format(calendar.getTime());
+        Current.setText(thang+"/"+nam);
+        dates.clear();
+        Calendar monthca = (Calendar) calendar.clone();
+        monthca.set(Calendar.DAY_OF_MONTH,1);
+        int firstdayofmonth = monthca.get(Calendar.DAY_OF_WEEK)-1;
+        monthca.add(Calendar.DAY_OF_MONTH,-firstdayofmonth);
+        while (dates.size()<MAX_CALENDER_DAYS)
+        {
+            dates.add(monthca.getTime());
+            monthca.add(Calendar.DAY_OF_MONTH,1);
+
+        }
+
+
 
     }
 }

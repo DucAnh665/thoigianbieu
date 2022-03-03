@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".view.MainActivity"
     android:orientation="vertical"
     android:background="#037C7C">
 
 
-    <com.example.lich.CustomCalendar
+    <com.example.lich.Thoikhoabieu.CustomCalendar
         android:id="@+id/custom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

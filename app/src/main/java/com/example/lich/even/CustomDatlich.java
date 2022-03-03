@@ -1,7 +1,6 @@
 package com.example.lich.even;
 
 import android.content.Context;
-import android.provider.ContactsContract;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.lich.Model.Events;
 import com.example.lich.R;
 
 import java.text.SimpleDateFormat;

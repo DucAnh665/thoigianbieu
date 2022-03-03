@@ -1,4 +1,4 @@
-package com.example.lich;
+package com.example.lich.Thoikhoabieu;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.lich.Model.TKB;
+import com.example.lich.R;
 
 import java.util.ArrayList;
 

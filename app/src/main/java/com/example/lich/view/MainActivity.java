@@ -1,8 +1,11 @@
-package com.example.lich;
+package com.example.lich.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.lich.Thoikhoabieu.CustomCalendar;
+import com.example.lich.R;
 
 public class MainActivity extends AppCompatActivity {
 

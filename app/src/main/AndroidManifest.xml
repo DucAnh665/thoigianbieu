@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lich">
         <activity
-            android:name=".even.datlich"
+            android:name=".view.datlich"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".dangnhap"
+            android:name=".view.home"
+            android:exported="true" />
+        <activity
+            android:name=".view.dangnhap"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

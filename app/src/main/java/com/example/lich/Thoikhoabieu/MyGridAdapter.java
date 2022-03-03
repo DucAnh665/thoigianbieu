@@ -1,4 +1,4 @@
-package com.example.lich;
+package com.example.lich.Thoikhoabieu;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -7,17 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.lich.Model.TKB;
 import com.example.lich.R;
-import com.example.lich.TKB;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;

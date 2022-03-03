@@ -1,9 +1,7 @@
-package com.example.lich;
+package com.example.lich.Thoikhoabieu;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +11,11 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import com.example.lich.Model.TKB;
+import com.example.lich.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

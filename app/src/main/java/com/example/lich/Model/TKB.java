@@ -1,4 +1,4 @@
-package com.example.lich;
+package com.example.lich.Model;
 
 public class TKB {
     int id;

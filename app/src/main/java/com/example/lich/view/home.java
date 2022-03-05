@@ -8,9 +8,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.lich.MainDatlich;
 import com.example.lich.Model.Sinhvien;
+import com.example.lich.Model.TKB;
 import com.example.lich.R;
+
+import java.util.ArrayList;
 
 public class home extends AppCompatActivity {
 
@@ -19,6 +21,7 @@ public class home extends AppCompatActivity {
     TextView Khoasv;
 
     static String tensv = " ", Ma = " ", khoa = " ";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

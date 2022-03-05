@@ -12,6 +12,7 @@ import com.example.lich.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -20,12 +21,15 @@ public class AdapterThoikhoabieu extends BaseAdapter {
     int Layout;
     Context context;
     ArrayList<TKB> dulieu;
-    SimpleDateFormat month = new SimpleDateFormat("MM", Locale.ENGLISH);
-    SimpleDateFormat Year = new SimpleDateFormat("yyyy",Locale.ENGLISH);
-    public AdapterThoikhoabieu(int layout, Context context, ArrayList<TKB> dulieu) {
+    String ngay,thang,nam;
+
+    public AdapterThoikhoabieu(int layout, Context context, ArrayList<TKB> dulieu, String ngay, String thang, String nam) {
         Layout = layout;
         this.context = context;
         this.dulieu = dulieu;
+        this.ngay = ngay;
+        this.thang = thang;
+        this.nam = nam;
     }
 
     @Override
@@ -65,9 +69,15 @@ public class AdapterThoikhoabieu extends BaseAdapter {
             hodel = (viewhodel) view.getTag();
         }
         TKB list = dulieu.get(i);
-
-        hodel.tenmon.setText(list.getTenmon());
-        hodel.thoigian.setText(list.getNgay()+"/"+list.getThang()+"/"+list.getNam());
+        if (list.getNgay().equals(ngay)&&list.getThang().equals(thang)&&list.getNam().equals(nam)) {
+            hodel.tenmon.setText(list.getTenmon());
+            hodel.thoigian.setText(list.getNgay() + "/" + list.getThang() + "/" + list.getNam());
+        }
+        else
+        {
+            hodel.tenmon.setVisibility(view.INVISIBLE);
+            hodel.thoigian.setVisibility(view.INVISIBLE);
+        }
         return view;
     }
 }

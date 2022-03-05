@@ -3,15 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/activity_dangnhap.xml" value="0.25" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/activity_datlich.xml" value="0.25" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/activity_listivewtkb.xml" value="0.25" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/activity_listviewtkb.xml" value="0.25" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/activity_main.xml" value="0.18888888888888888" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/activity_main_datlich.xml" value="0.25" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/ctlich.xml" value="0.1" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/cttkb.xml" value="0.1" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/home_calendar.xml" value="0.2" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/thoigianbieu/app/src/main/res/layout/lich.xml" value="0.1" />
         <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_calendar.xml" value="0.13020833333333334" />
         <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_dangnhap.xml" value="0.19322916666666667" />
-        <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_datlich.xml" value="0.2" />
+        <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_datlich.xml" value="0.1" />
         <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_listivewtkb.xml" value="0.19322916666666667" />
-        <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_main.xml" value="0.12360688956433637" />
-        <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_main_datlich.xml" value="0.25416666666666665" />
         <entry key="..\:/thoigianbieu/app/src/main/res/layout/ctlich.xml" value="0.13020833333333334" />
-        <entry key="..\:/thoigianbieu/app/src/main/res/layout/cttkb.xml" value="0.25416666666666665" />
-        <entry key="..\:/thoigianbieu/app/src/main/res/layout/home_calendar.xml" value="0.25416666666666665" />
         <entry key="..\:/thoigianbieu/app/src/main/res/layout/lich.xml" value="0.13020833333333334" />
       </map>
     </option>

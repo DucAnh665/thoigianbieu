@@ -1,13 +1,13 @@
-package com.example.lich;
+package com.example.lich.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.lich.R;
 import com.example.lich.even.CustomDatlich;
 
 public class MainDatlich extends AppCompatActivity {
-
     CustomDatlich customDatlich ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

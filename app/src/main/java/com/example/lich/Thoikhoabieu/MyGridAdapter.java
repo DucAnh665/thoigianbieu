@@ -73,7 +73,7 @@ public class MyGridAdapter extends ArrayAdapter {
             if (events.get(i).getNgay().equals(dayone) && events.get(i).getThang().equals(curmonth)&&events.get(i).getNam().equals(curyear)) {
                 cout++;
                 String sukien = String.valueOf(cout);
-                envenday.setText(sukien + "Sự kiện");
+                envenday.setText(sukien + "Môn");
                 envenday.setVisibility(View.VISIBLE);
                 view.setBackgroundColor(Color.parseColor("#f11cfe"));
             }

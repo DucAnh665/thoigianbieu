@@ -58,7 +58,6 @@ public class DBOpen extends SQLiteOpenHelper {
         String [] Projection = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
         String Selection = DBStruct.MONTH+"=?"+DBStruct.YEAR+"=?";
         String [] SelectionsArgs ={month,year};
-
         return database.query(DBStruct.EVENT_TABLE_NAME,Projection,Selection,SelectionsArgs,null,null,null);
 
     }

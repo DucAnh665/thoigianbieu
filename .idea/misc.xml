@@ -17,8 +17,11 @@
         <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_dangnhap.xml" value="0.19322916666666667" />
         <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_datlich.xml" value="0.1" />
         <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_listivewtkb.xml" value="0.19322916666666667" />
+        <entry key="..\:/thoigianbieu/app/src/main/res/layout/activity_main_datlich.xml" value="0.1" />
+        <entry key="..\:/thoigianbieu/app/src/main/res/layout/add_newevent_layout.xml" value="0.1" />
         <entry key="..\:/thoigianbieu/app/src/main/res/layout/ctlich.xml" value="0.13020833333333334" />
         <entry key="..\:/thoigianbieu/app/src/main/res/layout/lich.xml" value="0.13020833333333334" />
+        <entry key="..\:/thoigianbieu/app/src/main/res/layout/show_newenvent_layout.xml" value="0.1" />
       </map>
     </option>
   </component>

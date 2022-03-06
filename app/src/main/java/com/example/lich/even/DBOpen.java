@@ -12,11 +12,10 @@ import androidx.annotation.Nullable;
 public class DBOpen extends SQLiteOpenHelper {
 
 
-    private static final String CREATE_EVENTS_TABLE = "CREATE TABLE IF NOT EXISTS " + DBStruct.EVENT_TABLE_NAME + "(ID INTERGER PRIMARY KEY AUTOINCREMENT,"
-            + DBStruct.EVENT + "TEXT" + DBStruct.TIME + "TEXT," + DBStruct.DATE + "TEXT, " + DBStruct.MONTH + "TEXT, " + DBStruct.YEAR + "TEXT )";
+    private static final String CREATE_EVENTS_TABLE = "create table " +DBStruct.EVENT_TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + DBStruct.EVENT+" TEXT, " + DBStruct.TIME+" TEXT," + DBStruct.DATE+" TEXT, " + DBStruct.MONTH+" TEXT, " + DBStruct.YEAR+" TEXT )";
 
-    private static final String DROP_EVENTS_TABLE = "DROP TABLE IF EXISTS" + DBStruct.EVENT_TABLE_NAME;
-
+    private static final String DROP_EVENTS_TABLE = " DROP TABLE IF EXISTS "+DBStruct.EVENT_TABLE_NAME;
 
     public DBOpen(@Nullable Context context) {
         super(context, DBStruct.DB_NAME, null, DBStruct.DB_VERSION);

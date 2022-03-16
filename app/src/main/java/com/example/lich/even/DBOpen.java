@@ -13,7 +13,7 @@ public class DBOpen extends SQLiteOpenHelper {
 
 
     private static final String CREATE_EVENTS_TABLE = "create table " +DBStruct.EVENT_TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + DBStruct.EVENT+" TEXT, " + DBStruct.TIME+" TEXT," + DBStruct.DATE+" TEXT, " + DBStruct.MONTH+" TEXT, " + DBStruct.YEAR+" TEXT )";
+            + DBStruct.EVENT+" TEXT, " + DBStruct.TIME+" TEXT," + DBStruct.DATE+" TEXT, " + DBStruct.MONTH+" TEXT, " + DBStruct.YEAR+" TEXT)";
 
     private static final String DROP_EVENTS_TABLE = " DROP TABLE IF EXISTS "+DBStruct.EVENT_TABLE_NAME;
 
@@ -45,19 +45,19 @@ public class DBOpen extends SQLiteOpenHelper {
     }
     public Cursor ReadEvents(String date, SQLiteDatabase database)
     {
-        String [] Projection = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
-        String Selection = DBStruct.DATE+"=?";
-        String [] SelectionsArgs ={date};
+        String [] Projections = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
+        String Selection = DBStruct.DATE +"=?";
+        String [] SelectionsArgs = {date};
 
-        return database.query(DBStruct.EVENT_TABLE_NAME,Projection,Selection,SelectionsArgs,null,null,null);
+        return database.query(DBStruct.EVENT_TABLE_NAME,Projections,Selection,SelectionsArgs,null,null,null);
 
     }
     public Cursor ReadEventsperMonth(String month,String year, SQLiteDatabase database)
     {
-        String [] Projection = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
-        String Selection = DBStruct.MONTH+"=?"+DBStruct.YEAR+"=?";
-        String [] SelectionsArgs ={month,year};
-        return database.query(DBStruct.EVENT_TABLE_NAME,Projection,Selection,SelectionsArgs,null,null,null);
+        String [] Projections = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
+        String Selection = DBStruct.MONTH +"=? and "+DBStruct.YEAR+"=?";
+        String [] SelectionsArgs = {month,year};
+        return database.query(DBStruct.EVENT_TABLE_NAME,Projections,Selection,SelectionsArgs,null,null,null);
 
     }
 

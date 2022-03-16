@@ -5,7 +5,7 @@
     android:background="@color/teal_200"
     android:orientation="vertical">
     <EditText
-        android:id="@+id/eventname"
+        android:id="@+id/eventnames"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="ten su kien"
@@ -22,7 +22,7 @@
         android:gravity="center"
         android:textSize="30dp"
         android:text="00:00"
-        android:id="@+id/eventtime"
+        android:id="@+id/eventtimes"
         android:layout_gravity="center"
         android:background="@color/white"/>
     <Button

@@ -6,7 +6,7 @@ public class DBStruct {
     public static final String EVENT_TABLE_NAME = "eventstable";
     public static final String EVENT = "event";
 
-        public static final String TIME ="time";
+        public static final String TIME = "time";
 
     public static final String DATE = "date";
     public static final String MONTH = "month";

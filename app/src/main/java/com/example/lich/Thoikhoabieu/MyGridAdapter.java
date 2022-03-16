@@ -63,7 +63,7 @@ public class MyGridAdapter extends ArrayAdapter {
             view.setBackgroundColor(Color.parseColor("#cccccc"));
         }
         TextView day = view.findViewById(R.id.day);
-        TextView envenday = view.findViewById(R.id.evenday);
+        TextView number = view.findViewById(R.id.number);
         day.setText(String.valueOf(dayno));
         int cout = 0;
         String dayone = String.valueOf(dayno);
@@ -73,8 +73,8 @@ public class MyGridAdapter extends ArrayAdapter {
             if (events.get(i).getNgay().equals(dayone) && events.get(i).getThang().equals(curmonth)&&events.get(i).getNam().equals(curyear)) {
                 cout++;
                 String sukien = String.valueOf(cout);
-                envenday.setText(sukien + "Môn");
-                envenday.setVisibility(View.VISIBLE);
+                number.setText(sukien + "Môn");
+                number.setVisibility(View.VISIBLE);
                 view.setBackgroundColor(Color.parseColor("#f11cfe"));
             }
         }

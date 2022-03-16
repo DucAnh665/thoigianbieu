@@ -12,13 +12,13 @@
         android:orientation="horizontal"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:background="@color/teal_700"
+        android:background="#80CBC4"
         >
     <ImageButton
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/pre"
-        android:background="@drawable/pre"
+        android:background="@drawable/ic_back"
         android:layout_margin="10dp"
         />
 
@@ -32,98 +32,105 @@
             android:text="lich"
             android:layout_gravity="center"
             android:textColor="@color/white"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textSize="20dp"
+            android:textStyle="italic" />
 
         <ImageButton
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/next"
-        android:background="@drawable/next"
+        android:background="@drawable/ic_next"
         android:layout_margin="10dp"
         />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
         android:orientation="horizontal"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
-        android:background="@color/cardview_dark_background"
-        >
+        android:layout_marginTop="7dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="thu 2"
-            android:background="#00FF00"
             android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="T2"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="thu 3"
-            android:background="#00FF00"
             android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="T3"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="thu 4"
-            android:background="#00FF00"
             android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="T4"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="thu 5"
-            android:background="#00FF00"
             android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="T5"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="thu 6"
-            android:background="#00FF00"
             android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="T6"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="thu 7"
-            android:background="#00FF00"
             android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="T7"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="chu nhat"
-            android:background="#00FF00"
             android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="CN"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black" />
     </LinearLayout>
     <GridView
+        android:layout_margin="6dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/grid"

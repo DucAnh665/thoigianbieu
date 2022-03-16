@@ -1,6 +1,7 @@
 package com.example.lich.even;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -31,21 +32,26 @@ public class CustomDatlich extends LinearLayout {
     ImageButton Next,Pre;
     TextView Current;
     GridView gridView;
-    private  static  final int MAX_CALENDER_DAYS = 42;
+    private  static  final int MAX_CALENDAR_DAYS = 42;
     Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
     Context context;
+
+
     SimpleDateFormat dateFormat = new SimpleDateFormat("MM yyyy",Locale.ENGLISH);
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM",Locale.ENGLISH);
     SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy",Locale.ENGLISH);
+    SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
 
-    MyGridDatLich myGridDatLich = null;
+    String curdate = " ",curyear = " ";
+    String curmont = " ";
 
-    String ngay = " ",thang = " ";
-    String nam = " ";
-    DBOpen dbOpenHelper;
+    MyGridDatLich myGridDatLich ;
+
     AlertDialog alertDialog;
     List<Date> dates = new ArrayList<>();
     List<Events> eventsList = new ArrayList<>();
+    DBOpen dbOpenHelper;
+
 
     public CustomDatlich(Context context) {
 
@@ -78,18 +84,20 @@ public class CustomDatlich extends LinearLayout {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setCancelable(true);
                 View addView = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_newevent_layout,null);
-                EditText Eventname = addView.findViewById(R.id.eventname);
-                EditText Eventtime = addView.findViewById(R.id.eventtime);
+                EditText Eventname = addView.findViewById(R.id.eventnames);
+                EditText Eventtime = addView.findViewById(R.id.eventtimes);
                 Button Buttonthem = addView.findViewById(R.id.addsukien);
 
-                final String date = dateFormat.format(dates.get(i));
-                final String month = monthFormat.format(dates.get(i));
-                final String year = yearFormat.format(dates.get(i));
+                String date = eventDateFormat.format(dates.get(i));
+                String month = monthFormat.format(dates.get(i));
+                String year = yearFormat.format(dates.get(i));
 
                 Buttonthem.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         SaveEvent(Eventname.getText().toString(),Eventtime.getText().toString(),date,month,year);
+                        SetUpCalender();
+                        alertDialog.dismiss();
 
                     }
                 });
@@ -106,11 +114,11 @@ public class CustomDatlich extends LinearLayout {
 
     }
 
-    private void SaveEvent(String events,String time,String date,String month,String year)
+    private void SaveEvent(String event,String time,String date,String month,String year)
     {
         dbOpenHelper = new DBOpen(context);
         SQLiteDatabase database = dbOpenHelper.getWritableDatabase();
-        dbOpenHelper.SaveEvent(events,time,date,month,year,database);
+        dbOpenHelper.SaveEvent(event,time,date,month,year,database);
         dbOpenHelper.close();
         Toast.makeText(context, "Events Saved", Toast.LENGTH_SHORT).show();
     }
@@ -127,16 +135,20 @@ public class CustomDatlich extends LinearLayout {
 
     private void SetUpCalender()
     {
-        //String ngay = dateFormat.format(calenda r.getTime());
-        String thang = monthFormat.format(calendar.getTime());
-        String nam = yearFormat.format(calendar.getTime());
-        Current.setText(thang+"/"+nam);
+
+        curdate = dateFormat.format(calendar.getTime());
+        curyear = yearFormat.format(calendar.getTime());
+        curmont = monthFormat.format(calendar.getTime());
+        Current.setText(curmont+"/"+curyear);
+
         dates.clear();
         Calendar monthca = (Calendar) calendar.clone();
         monthca.set(Calendar.DAY_OF_MONTH,1);
         int firstdayofmonth = monthca.get(Calendar.DAY_OF_WEEK)-1;
         monthca.add(Calendar.DAY_OF_MONTH,-firstdayofmonth);
-        while (dates.size()<MAX_CALENDER_DAYS)
+        CollectEventsPerMonth(monthFormat.format(calendar.getTime()),yearFormat.format(calendar.getTime()));
+
+        while (dates.size() < MAX_CALENDAR_DAYS)
         {
             dates.add(monthca.getTime());
             monthca.add(Calendar.DAY_OF_MONTH,1);
@@ -146,6 +158,26 @@ public class CustomDatlich extends LinearLayout {
         myGridDatLich = new MyGridDatLich(context,dates,calendar,eventsList);
         gridView.setAdapter(myGridDatLich);
 
+    }
+    private  void CollectEventsPerMonth(String Month,String year)
+    {   eventsList.clear();
+        dbOpenHelper = new DBOpen(context);
+        SQLiteDatabase database = dbOpenHelper.getReadableDatabase();
+        Cursor cursor = dbOpenHelper.ReadEventsperMonth(Month,year,database);
+        while (cursor.moveToNext())
+        {
+            String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
+            String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
+            String date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
+            String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
+            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
+            Events events = new Events(event,time,date,month,Year);
+
+            eventsList.add(events);
+
+        }
+        cursor.close();
+        dbOpenHelper.close();
     }
 
 

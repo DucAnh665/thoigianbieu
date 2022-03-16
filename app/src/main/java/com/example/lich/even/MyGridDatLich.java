@@ -14,7 +14,9 @@ import androidx.annotation.Nullable;
 import com.example.lich.Model.Events;
 import com.example.lich.R;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -25,24 +27,21 @@ public class MyGridDatLich extends ArrayAdapter {
 
     List<Date> dates;
     Calendar currentdate;
-    List<Events> listEvents;
+    List<Events> events;
     LayoutInflater inflater;
 
 
 
-
-    public MyGridDatLich(@NonNull Context context, List<Date> dates, Calendar currentdate, List<Events> listEvents) {
+    public MyGridDatLich(@NonNull Context context, List<Date> dates, Calendar currentdate, List<Events> events) {
         super(context, R.layout.activity_datlich);
 
         this.dates= dates;
         this.currentdate = currentdate;
-        this.listEvents = listEvents;
+        this.events = events;
         inflater = LayoutInflater.from(context);
 
 
     }
-    SimpleDateFormat monthFormat = new SimpleDateFormat("MM", Locale.ENGLISH);
-    SimpleDateFormat YearFormat = new SimpleDateFormat("yyyy", Locale.ENGLISH);
 
 
     @NonNull
@@ -60,7 +59,7 @@ public class MyGridDatLich extends ArrayAdapter {
 
         if (convertView==null)
         {
-            convertView = inflater.inflate(R.layout.ctlich,parent,false);
+            convertView = inflater.inflate(R.layout.ctevent,parent,false);
         }
         if (displaymonth==curenMonth && displayyear == currenyear)
         {
@@ -71,27 +70,56 @@ public class MyGridDatLich extends ArrayAdapter {
             convertView.setBackgroundColor(Color.parseColor("#cccccc"));
         }
 
-        TextView day = convertView.findViewById(R.id.day);
-        day.setText(String.valueOf(dayno));
-        TextView envenday = convertView.findViewById(R.id.evenday);
+        TextView eventday = convertView.findViewById(R.id.eventday);
+        TextView eventnumber = convertView.findViewById(R.id.eventnumber);
+        eventday.setText(String.valueOf(dayno));
+
+        Calendar eventcalendar = Calendar.getInstance();
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        for (int i = 0; i < events.size() ; i++)
+        {
+            eventcalendar.setTime(ConvertStringToDate(events.get(i).getDATE()));
+            if(dayno == eventcalendar.get(Calendar.DAY_OF_MONTH) && displaymonth == eventcalendar.get(Calendar.MONTH)+1
+            && displayyear == eventcalendar.get(Calendar.YEAR))
+            {
+                arrayList.add(events.get(i).getEVENT());
+                eventnumber.setText(arrayList.size() + " Events");
+            }
+        }
+
 
 
         return convertView;
     }
 
-    @Nullable
-    @Override
-    public Object getItem(int position) {
-        return dates.get(position);
-    }
-
-    @Override
-    public int getPosition(@Nullable Object item) {
-        return dates.indexOf(item);
+    private Date ConvertStringToDate(String eventDate)
+    {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        Date date = null;
+        try{
+            date = format.parse(eventDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 
     @Override
     public int getCount() {
         return dates.size();
     }
+    @Override
+    public int getPosition(@Nullable Object item) {
+        return dates.indexOf(item);
+    }
+    @Nullable
+    @Override
+    public Object getItem(int position) {
+        return dates.get(position);
+    }
+
+
+
+
 }

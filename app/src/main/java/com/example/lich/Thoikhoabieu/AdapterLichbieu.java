@@ -58,7 +58,7 @@ public class AdapterLichbieu extends RecyclerView.Adapter<AdapterLichbieu.viewho
         public viewhodel(@NonNull View itemView) {
             super(itemView);
             date = itemView.findViewById(R.id.day);
-            somon = itemView.findViewById(R.id.evenday);
+            somon = itemView.findViewById(R.id.number);
 
         }
     }

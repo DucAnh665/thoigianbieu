@@ -12,10 +12,10 @@ import androidx.annotation.Nullable;
 public class DBOpen extends SQLiteOpenHelper {
 
 
-    private static final String CREATE_EVENTS_TABLE = "create table " +DBStruct.EVENT_TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + DBStruct.EVENT+" TEXT, " + DBStruct.TIME+" TEXT," + DBStruct.DATE+" TEXT, " + DBStruct.MONTH+" TEXT, " + DBStruct.YEAR+" TEXT)";
+    private static final String CREATE_EVENTS_TABLE = "create table "+DBStruct.EVENT_TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + DBStruct.EVENT+" TEXT, " + DBStruct.TIME+" TEXT," + DBStruct.DATE+" TEXT, "+ DBStruct.MONTH+" TEXT, "+DBStruct.YEAR+" TEXT)";
 
-    private static final String DROP_EVENTS_TABLE = " DROP TABLE IF EXISTS "+DBStruct.EVENT_TABLE_NAME;
+    private static final String DROP_EVENTS_TABLE = "DROP TABLE IF EXISTS "+DBStruct.EVENT_TABLE_NAME;
 
     public DBOpen(@Nullable Context context) {
         super(context, DBStruct.DB_NAME, null, DBStruct.DB_VERSION);
@@ -46,7 +46,7 @@ public class DBOpen extends SQLiteOpenHelper {
     public Cursor ReadEvents(String date, SQLiteDatabase database)
     {
         String [] Projections = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
-        String Selection = DBStruct.DATE +"=?";
+        String Selection = DBStruct.DATE +" =? ";
         String [] SelectionsArgs = {date};
 
         return database.query(DBStruct.EVENT_TABLE_NAME,Projections,Selection,SelectionsArgs,null,null,null);
@@ -55,9 +55,16 @@ public class DBOpen extends SQLiteOpenHelper {
     public Cursor ReadEventsperMonth(String month,String year, SQLiteDatabase database)
     {
         String [] Projections = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
-        String Selection = DBStruct.MONTH +"=? and "+DBStruct.YEAR+"=?";
+        String Selection = DBStruct.MONTH +" =? and "+DBStruct.YEAR+" =? ";
         String [] SelectionsArgs = {month,year};
         return database.query(DBStruct.EVENT_TABLE_NAME,Projections,Selection,SelectionsArgs,null,null,null);
+
+    }
+    public void deleteEvent(String event,String date,String time,SQLiteDatabase database)
+    {
+        String selection = DBStruct.EVENT + "=? and "+ DBStruct.DATE + " =? and "+ DBStruct.TIME + " =? and ";
+        String[] selectionArg = {event,date,time};
+        database.delete(DBStruct.EVENT_TABLE_NAME,selection,selectionArg);
 
     }
 

@@ -1,6 +1,7 @@
 package com.example.lich.even;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.AttributeSet;
@@ -17,6 +18,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lich.Model.Events;
 import com.example.lich.R;
@@ -88,6 +91,8 @@ public class CustomDatlich extends LinearLayout {
                 EditText Eventtime = addView.findViewById(R.id.eventtimes);
                 Button Buttonthem = addView.findViewById(R.id.addsukien);
 
+
+
                 String date = eventDateFormat.format(dates.get(i));
                 String month = monthFormat.format(dates.get(i));
                 String year = yearFormat.format(dates.get(i));
@@ -107,6 +112,58 @@ public class CustomDatlich extends LinearLayout {
 
             }
         });
+
+        gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String date = eventDateFormat.format(dates.get(i));
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setCancelable(true);
+                View showView = LayoutInflater.from(getContext()).inflate(R.layout.show_events,null);
+                RecyclerView recyclerView = showView.findViewById(R.id.EventsRV);
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(showView.getContext());
+                recyclerView.setLayoutManager(layoutManager);
+                recyclerView.setHasFixedSize(true);
+                EventRecyclerAdapter eventRecyclerAdapter = new EventRecyclerAdapter(showView.getContext(),CollectEventByDate(date));
+                recyclerView.setAdapter(eventRecyclerAdapter);
+                eventRecyclerAdapter.notifyDataSetChanged();
+
+
+                builder.setView(showView);
+                alertDialog = builder.create();
+                alertDialog.show();
+                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialogInterface) {
+                        SetUpCalender();
+                    }
+                });
+
+                return true;
+            }
+        });
+    }
+    public ArrayList<Events> CollectEventByDate(String date)
+    {
+        ArrayList<Events> arrayList = new ArrayList<>();
+        dbOpenHelper = new DBOpen(context);
+        SQLiteDatabase database = dbOpenHelper.getReadableDatabase();
+        Cursor cursor = dbOpenHelper.ReadEvents(date,database);
+        while (cursor.moveToNext()){
+            String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
+            String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
+            String Date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
+            String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
+            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
+            Events events = new Events(event,time,Date,month,Year);
+            arrayList.add(events);
+        }
+        cursor.close();
+        dbOpenHelper.close();
+
+        return  arrayList;
+
     }
 
     public CustomDatlich(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -44,7 +45,7 @@ public class CustomCalendar extends LinearLayout {
     String url = "https://csdlapp.000webhostapp.com/getteam.php";
    static public ArrayList<TKB> dulieu = new ArrayList<>();
     ArrayList<Date> dates = new ArrayList<>();
-    Button tien,lui;
+    ImageButton tien,lui;
 
 
     Calendar daycale = Calendar.getInstance();

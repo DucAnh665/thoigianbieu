@@ -33,8 +33,7 @@ public class MyGridDatLich extends ArrayAdapter {
 
 
     public MyGridDatLich(@NonNull Context context, List<Date> dates, Calendar currentdate, List<Events> events) {
-        super(context, R.layout.activity_datlich);
-
+        super(context, R.layout.ctevent);
         this.dates= dates;
         this.currentdate = currentdate;
         this.events = events;
@@ -43,11 +42,12 @@ public class MyGridDatLich extends ArrayAdapter {
 
     }
 
+    SimpleDateFormat monthFormat = new SimpleDateFormat("MM",Locale.ENGLISH);
+    SimpleDateFormat YearFormat = new SimpleDateFormat("yyyy", Locale.ENGLISH);
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
         Date month = dates.get(position);
         Calendar datecale = Calendar.getInstance();
         datecale.setTime(month);
@@ -69,41 +69,27 @@ public class MyGridDatLich extends ArrayAdapter {
         {
             convertView.setBackgroundColor(Color.parseColor("#cccccc"));
         }
-
-        TextView eventday = convertView.findViewById(R.id.eventday);
-        TextView eventnumber = convertView.findViewById(R.id.eventnumber);
-        eventday.setText(String.valueOf(dayno));
-
-        Calendar eventcalendar = Calendar.getInstance();
-        ArrayList<String> arrayList = new ArrayList<>();
-
-        for (int i = 0; i < events.size() ; i++)
-        {
-            eventcalendar.setTime(ConvertStringToDate(events.get(i).getDATE()));
-            if(dayno == eventcalendar.get(Calendar.DAY_OF_MONTH) && displaymonth == eventcalendar.get(Calendar.MONTH)+1
-            && displayyear == eventcalendar.get(Calendar.YEAR))
-            {
-                arrayList.add(events.get(i).getEVENT());
-                eventnumber.setText(arrayList.size() + " Events");
+        TextView day =  convertView.findViewById(R.id.eventday);
+        TextView number = convertView.findViewById(R.id.eventnumber);
+        day.setText(String.valueOf(dayno));
+        int cout = 0;
+        String dayone = String.valueOf(dayno);
+        String curyear = YearFormat.format(datecale.getTime());
+        String curmonth = monthFormat.format(datecale.getTime());
+        for (position=0;position<events.size();position++) {
+            if (events.get(position).getDATE().equals(dayone) && events.get(position).getMONTH().equals(curmonth)&&events.get(position).getYEAR().equals(curyear)) {
+                cout++;
+                String sukien = String.valueOf(cout);
+                number.setText(sukien + "Sự kiện");
+                number.setVisibility(View.VISIBLE);
+                convertView.setBackgroundColor(Color.parseColor("#f11cfe"));
             }
         }
-
-
 
         return convertView;
     }
 
-    private Date ConvertStringToDate(String eventDate)
-    {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-        Date date = null;
-        try{
-            date = format.parse(eventDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return date;
-    }
+
 
     @Override
     public int getCount() {

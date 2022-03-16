@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lich">
         <activity
+            android:name=".view.listvieweven"
+            android:exported="false" />
+        <activity
             android:name=".view.listviewtkb"
             android:exported="false" />
         <activity

@@ -2,6 +2,7 @@ package com.example.lich.even;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.AttributeSet;
@@ -23,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lich.Model.Events;
 import com.example.lich.R;
+import com.example.lich.view.listvieweven;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,12 +49,14 @@ public class CustomDatlich extends LinearLayout {
 
     String curdate = " ",curyear = " ";
     String curmont = " ";
+    int dayno;
 
     MyGridDatLich myGridDatLich ;
 
     AlertDialog alertDialog;
     List<Date> dates = new ArrayList<>();
-    List<Events> eventsList = new ArrayList<>();
+    ArrayList<Events> eventsList = new ArrayList<>();
+    Calendar daycale = Calendar.getInstance();
     DBOpen dbOpenHelper;
 
 
@@ -116,31 +120,13 @@ public class CustomDatlich extends LinearLayout {
         gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String date = eventDateFormat.format(dates.get(i));
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setCancelable(true);
-                View showView = LayoutInflater.from(getContext()).inflate(R.layout.show_events,null);
-                RecyclerView recyclerView = showView.findViewById(R.id.EventsRV);
-                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(showView.getContext());
-                recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setHasFixedSize(true);
-                EventRecyclerAdapter eventRecyclerAdapter = new EventRecyclerAdapter(showView.getContext(),CollectEventByDate(date));
-                recyclerView.setAdapter(eventRecyclerAdapter);
-                eventRecyclerAdapter.notifyDataSetChanged();
-
-
-                builder.setView(showView);
-                alertDialog = builder.create();
-                alertDialog.show();
-                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialogInterface) {
-                        SetUpCalender();
-                    }
-                });
-
-                return true;
+                setupngay(i);
+                Current.setText(String.valueOf(dayno)+"/"+curmont+"/"+curyear);
+                for (i=0;i<eventsList.size();i++) {
+                    Toast.makeText(context, eventsList.get(i).getDATE(), Toast.LENGTH_LONG).show();
+                }
+               context.startActivity(new Intent(context, listvieweven.class));
+                return false;
             }
         });
     }
@@ -168,6 +154,14 @@ public class CustomDatlich extends LinearLayout {
 
     public CustomDatlich(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+    }
+    public void setupngay(int i)
+    {
+        Date day = dates.get(i);
+        daycale.setTime(day);
+        dayno = daycale.get(Calendar.DAY_OF_MONTH);
+
 
     }
 

@@ -28,11 +28,15 @@ public class Adaptereven extends BaseAdapter {
     Context context;
     ArrayList<Events> dulieu;
     DBOpen dbOpen ;
+    String ngay = " ", thang = " ",nam = " ";
 
-    public Adaptereven(int layout, Context context, ArrayList<Events> dulieu) {
+    public Adaptereven(int layout, Context context, ArrayList<Events> dulieu, String ngay, String thang, String nam) {
         Layout = layout;
         this.context = context;
         this.dulieu = dulieu;
+        this.ngay = ngay;
+        this.thang = thang;
+        this.nam = nam;
     }
 
     @Override
@@ -77,9 +81,14 @@ public class Adaptereven extends BaseAdapter {
             hodel = (viewhodel) view.getTag();
         }
         Events list = dulieu.get(i);
-        hodel.even.setText(list.getEVENT());
-        hodel.date.setText(list.getDATE()+"/"+list.getMONTH()+"/"+list.getYEAR());
-        hodel.time.setText(list.getTIME());
+        if (list.getDATE().equals(ngay)&&list.getMONTH().equals(thang)&&list.getYEAR().equals(nam))
+        {
+            hodel.even.setText(list.getEVENT());
+            hodel.date.setText(list.getDATE()+"/"+list.getMONTH()+"/"+list.getYEAR());
+            hodel.time.setText(list.getTIME());
+        }
+
+
         hodel.btxoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

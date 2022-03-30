@@ -39,12 +39,11 @@ public class dangnhap extends AppCompatActivity {
                 String matkhau = txtmatkhau.getText().toString();
                 if (taikhoan.equals("")&&matkhau.equals(""))
                 {
-                    Toast.makeText(dangnhap.this,"Vui lòng nhập đủ thông tin",Toast.LENGTH_LONG).show();
-                }
+                    startActivity(new Intent(dangnhap.this,home.class));                }
                 else
                 {
                    // dn.dangnhap(taikhoan,matkhau,url,dangnhap.this);
-                    startActivity(new Intent(dangnhap.this,home.class));
+
 
                 }
 

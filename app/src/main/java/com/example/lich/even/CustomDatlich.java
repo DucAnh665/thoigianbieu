@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.lich.Model.Events;
 import com.example.lich.R;
 import com.example.lich.view.listvieweven;
+import com.example.lich.view.listviewtkb;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -45,7 +47,7 @@ public class CustomDatlich extends LinearLayout {
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd",Locale.ENGLISH);
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM",Locale.ENGLISH);
     SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy",Locale.ENGLISH);
-    SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
+    //SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
 
     String curdate = " ",curyear = " ";
     String curmont = " ";
@@ -55,7 +57,7 @@ public class CustomDatlich extends LinearLayout {
 
     AlertDialog alertDialog;
     List<Date> dates = new ArrayList<>();
-    ArrayList<Events> eventsList = new ArrayList<>();
+  public  static  ArrayList<Events> eventsList = new ArrayList<>();
     Calendar daycale = Calendar.getInstance();
     DBOpen dbOpenHelper;
 
@@ -123,11 +125,13 @@ public class CustomDatlich extends LinearLayout {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 setupngay(i);
-                Current.setText(String.valueOf(dayno)+"/"+curmont+"/"+curyear);
-                for (i=0;i<eventsList.size();i++) {
-                    //Toast.makeText(context, eventsList.get(i).getDATE(), Toast.LENGTH_LONG).show();
-                }
-               context.startActivity(new Intent(context, listvieweven.class));
+                Intent intent = new Intent(context, listvieweven.class);
+                Bundle bd = new Bundle();
+                bd.putString("t1",String.valueOf(dayno));
+                bd.putString("t2",curmont);
+                bd.putString("t3",curyear);
+                intent.putExtras(bd);
+                context.startActivity(intent);
                 return false;
             }
 

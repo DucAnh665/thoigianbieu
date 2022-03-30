@@ -53,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/delete"
                 android:text="delete"
+                android:textAllCaps="false"
                 android:layout_gravity="center"
                 />
         </LinearLayout>

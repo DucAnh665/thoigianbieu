@@ -46,7 +46,7 @@ public class DBOpen extends SQLiteOpenHelper {
     public Cursor ReadEvents(String date, SQLiteDatabase database)
     {
         String [] Projections = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
-        String Selection = DBStruct.DATE +" =? ";
+        String Selection = DBStruct.DATE+"=?";
         String [] SelectionsArgs = {date};
 
         return database.query(DBStruct.EVENT_TABLE_NAME,Projections,Selection,SelectionsArgs,null,null,null);
@@ -55,14 +55,14 @@ public class DBOpen extends SQLiteOpenHelper {
     public Cursor ReadEventsperMonth(String month,String year, SQLiteDatabase database)
     {
         String [] Projections = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
-        String Selection = DBStruct.MONTH +" =? and "+DBStruct.YEAR+" =? ";
+        String Selection = DBStruct.MONTH+"=? and "+DBStruct.YEAR+"=?";
         String [] SelectionsArgs = {month,year};
         return database.query(DBStruct.EVENT_TABLE_NAME,Projections,Selection,SelectionsArgs,null,null,null);
 
     }
     public void deleteEvent(String event,String date,String time,SQLiteDatabase database)
     {
-        String selection = DBStruct.EVENT + "=? and "+ DBStruct.DATE + " =? and "+ DBStruct.TIME + " =? and ";
+        String selection = DBStruct.EVENT+"=? and "+DBStruct.DATE +"=? and "+DBStruct.TIME+"=?";
         String[] selectionArg = {event,date,time};
         database.delete(DBStruct.EVENT_TABLE_NAME,selection,selectionArg);
 

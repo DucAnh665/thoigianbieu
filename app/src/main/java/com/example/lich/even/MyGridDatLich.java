@@ -41,7 +41,7 @@ public class MyGridDatLich extends ArrayAdapter {
 
 
     }
-
+    SimpleDateFormat dayFormat = new SimpleDateFormat("dd",Locale.ENGLISH);
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM",Locale.ENGLISH);
     SimpleDateFormat YearFormat = new SimpleDateFormat("yyyy", Locale.ENGLISH);
 
@@ -51,6 +51,7 @@ public class MyGridDatLich extends ArrayAdapter {
         Date month = dates.get(position);
         Calendar datecale = Calendar.getInstance();
         datecale.setTime(month);
+
         int dayno = datecale.get(Calendar.DAY_OF_MONTH);
         int displaymonth = datecale.get(Calendar.MONTH)+1;
         int displayyear = datecale.get(Calendar.YEAR);
@@ -77,7 +78,7 @@ public class MyGridDatLich extends ArrayAdapter {
         String curyear = YearFormat.format(datecale.getTime());
         String curmonth = monthFormat.format(datecale.getTime());
         for (position=0;position<events.size();position++) {
-            if (events.get(position).getDATE().equals(dayone) && events.get(position).getMONTH().equals(curmonth)&&events.get(position).getYEAR().equals(curyear)) {
+            if (events.get(position).getDATE().equals(dayone) && events.get(position).getDATE().equals(dayone) && events.get(position).getMONTH().equals(curmonth)&&events.get(position).getYEAR().equals(curyear)) {
                 cout++;
                 String sukien = String.valueOf(cout);
                 number.setText(sukien + "Sự kiện");

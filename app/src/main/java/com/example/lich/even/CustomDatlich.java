@@ -42,7 +42,7 @@ public class CustomDatlich extends LinearLayout {
     Context context;
 
 
-    SimpleDateFormat dateFormat = new SimpleDateFormat("MM yyyy",Locale.ENGLISH);
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd",Locale.ENGLISH);
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM",Locale.ENGLISH);
     SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy",Locale.ENGLISH);
     SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
@@ -114,20 +114,26 @@ public class CustomDatlich extends LinearLayout {
                 alertDialog = builder.create();
                 alertDialog.show();
 
+
             }
         });
 
         gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 setupngay(i);
                 Current.setText(String.valueOf(dayno)+"/"+curmont+"/"+curyear);
                 for (i=0;i<eventsList.size();i++) {
-                    Toast.makeText(context, eventsList.get(i).getDATE(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(context, eventsList.get(i).getDATE(), Toast.LENGTH_LONG).show();
                 }
                context.startActivity(new Intent(context, listvieweven.class));
                 return false;
             }
+
+
+
+
         });
     }
     public ArrayList<Events> CollectEventByDate(String date)

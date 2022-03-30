@@ -97,7 +97,7 @@ public class CustomDatlich extends LinearLayout {
 
 
 
-                String date = eventDateFormat.format(dates.get(i));
+                String date = dateFormat.format(dates.get(i));
                 String month = monthFormat.format(dates.get(i));
                 String year = yearFormat.format(dates.get(i));
 

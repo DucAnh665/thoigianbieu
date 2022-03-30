@@ -27,7 +27,7 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_calendar);
         Anhxa();
-        nhandulieu();
+   //     nhandulieu();
     }
     public void Anhxa()
     {

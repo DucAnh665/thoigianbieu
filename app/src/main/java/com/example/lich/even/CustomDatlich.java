@@ -223,9 +223,7 @@ public class CustomDatlich extends LinearLayout {
             String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
             String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
             Events events = new Events(event,time,date,month,Year);
-
             eventsList.add(events);
-
         }
         cursor.close();
         dbOpenHelper.close();

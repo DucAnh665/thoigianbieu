@@ -4,7 +4,8 @@
     android:layout_height="250dp"
     android:background="@drawable/vien"
     android:orientation="vertical"
-    android:backgroundTint="#80CBC4">
+    android:backgroundTint="#80CBC4"
+    android:layout_marginBottom="20dp">
     <EditText
         android:id="@+id/eventnames"
         android:layout_width="match_parent"
@@ -40,7 +41,9 @@
             android:text="00:00"
             android:textSize="30dp" />
     </LinearLayout>
+
     <Button
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/addsukien"
@@ -48,8 +51,9 @@
         android:layout_gravity="center"
         android:textAllCaps="false"
         android:textStyle="bold"
+        android:textSize="15dp"
         android:backgroundTint="#2B8E85"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         />
 
 </LinearLayout>

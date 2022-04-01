@@ -4,25 +4,33 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+
+   >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
         app:cardElevation="12dp"
+
         >
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:backgroundTint="#80CBC4"
+            android:background="@drawable/vien"
+            android:layout_marginBottom="10dp"
             >
 
             <TextView
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/black"
                 android:id="@+id/eventdate"
                 android:textStyle="bold"
                 android:text="date"
@@ -32,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/black"
                 android:id="@+id/eventname"
                 android:textStyle="bold"
                 android:text="date"
@@ -42,18 +50,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/black"
                 android:id="@+id/eventtime"
                 android:textStyle="bold"
                 android:text="date"
                 android:textSize="40dp"
                 />
             <Button
-                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/delete"
-                android:text="delete"
+                android:text="Delete"
+                android:textSize="25dp"
                 android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:backgroundTint="#2B8E85"
                 android:layout_gravity="center"
                 />
         </LinearLayout>

@@ -80,14 +80,11 @@ public class listvieweven extends AppCompatActivity {
     public  void setupevent()
     {
 
-
-
         da = new Adaptereven(R.layout.show_events,listvieweven.this,dulieu,ngay,thang,nam);
         for (int i=0;i<dulieu.size();i++)
-        if (dulieu.get(i).getDATE().equals(ngay))
+        if (dulieu.get(i).getDATE().equals(ngay)&&dulieu.get(i).getDATE().equals(thang)&&dulieu.get(i).getDATE().equals(nam))
             {
                 Toast.makeText(listvieweven.this,dulieu.get(i).getEVENT(),Toast.LENGTH_LONG).show();
-
             }
         else
         {

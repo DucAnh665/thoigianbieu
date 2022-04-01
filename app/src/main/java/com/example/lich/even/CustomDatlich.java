@@ -47,7 +47,7 @@ public class CustomDatlich extends LinearLayout {
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd",Locale.ENGLISH);
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM",Locale.ENGLISH);
     SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy",Locale.ENGLISH);
-    //SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
+   // SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
 
     String curdate = " ",curyear = " ";
     String curmont = " ";
@@ -72,6 +72,7 @@ public class CustomDatlich extends LinearLayout {
         this.context = context;
         IntializeLayout();
         SetUpCalender();
+
         Pre.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,32 +136,30 @@ public class CustomDatlich extends LinearLayout {
                 return false;
             }
 
-
-
-
         });
     }
-    public ArrayList<Events> CollectEventByDate(String date)
-    {
-        ArrayList<Events> arrayList = new ArrayList<>();
-        dbOpenHelper = new DBOpen(context);
-        SQLiteDatabase database = dbOpenHelper.getReadableDatabase();
-        Cursor cursor = dbOpenHelper.ReadEvents(date,database);
-        while (cursor.moveToNext()){
-            String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
-            String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
-            String Date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
-            String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
-            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
-            Events events = new Events(event,time,Date,month,Year);
-            arrayList.add(events);
-        }
-        cursor.close();
-        dbOpenHelper.close();
 
-        return  arrayList;
-
-    }
+//    public ArrayList<Events> CollectEventByDate(String date)
+//    {
+//        ArrayList<Events> arrayList = new ArrayList<>();
+//        dbOpenHelper = new DBOpen(context);
+//        SQLiteDatabase database = dbOpenHelper.getReadableDatabase();
+//        Cursor cursor = dbOpenHelper.ReadEvents(date,database);
+//        while (cursor.moveToNext()){
+//            String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
+//            String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
+//            String Date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
+//            String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
+//            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
+//            Events events = new Events(event,time,Date,month,Year);
+//            arrayList.add(events);
+//        }
+//        cursor.close();
+//        dbOpenHelper.close();
+//
+//        return  arrayList;
+//
+//    }
 
     public CustomDatlich(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -193,7 +192,6 @@ public class CustomDatlich extends LinearLayout {
         Current = view.findViewById(R.id.current);
         gridView = view.findViewById(R.id.grid);
     }
-
     private void SetUpCalender()
     {
 
@@ -207,6 +205,7 @@ public class CustomDatlich extends LinearLayout {
         monthca.set(Calendar.DAY_OF_MONTH,1);
         int firstdayofmonth = monthca.get(Calendar.DAY_OF_WEEK)-1;
         monthca.add(Calendar.DAY_OF_MONTH,-firstdayofmonth);
+
         CollectEventsPerMonth(monthFormat.format(calendar.getTime()),yearFormat.format(calendar.getTime()));
 
         while (dates.size() < MAX_CALENDAR_DAYS)
@@ -221,7 +220,8 @@ public class CustomDatlich extends LinearLayout {
 
     }
     private  void CollectEventsPerMonth(String Month,String year)
-    {   eventsList.clear();
+    {
+        eventsList.clear();
         dbOpenHelper = new DBOpen(context);
         SQLiteDatabase database = dbOpenHelper.getReadableDatabase();
         Cursor cursor = dbOpenHelper.ReadEventsperMonth(Month,year,database);

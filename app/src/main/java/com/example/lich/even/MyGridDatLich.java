@@ -62,7 +62,7 @@ public class MyGridDatLich extends ArrayAdapter {
         {
             convertView = inflater.inflate(R.layout.ctevent,parent,false);
         }
-        if (displaymonth==curenMonth && displayyear == currenyear)
+        if (displaymonth==curenMonth && displayyear==currenyear)
         {
             convertView.setBackgroundColor(getContext().getResources().getColor(R.color.teal_200));
         }
@@ -78,6 +78,7 @@ public class MyGridDatLich extends ArrayAdapter {
         String curyear = YearFormat.format(datecale.getTime());
         String curmonth = monthFormat.format(datecale.getTime());
         for (position=0;position<events.size();position++) {
+
             if (events.get(position).getDATE().equals(dayone) && events.get(position).getDATE().equals(dayone) && events.get(position).getMONTH().equals(curmonth)&&events.get(position).getYEAR().equals(curyear)) {
                 cout++;
                 String sukien = String.valueOf(cout);

@@ -1,5 +1,7 @@
 package com.example.lich.view;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -19,7 +22,12 @@ import com.example.lich.Thoikhoabieu.AdapterThoikhoabieu;
 import com.example.lich.Thoikhoabieu.CustomCalendar;
 import com.example.lich.viewmodel.getdulieulich;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 public class listviewtkb extends AppCompatActivity {
 
@@ -28,11 +36,7 @@ public class listviewtkb extends AppCompatActivity {
     AdapterThoikhoabieu da;
     String ngay = " ",thang = " ",nam = " ";
     Button trove;
-    //String url = "https://csdlapp.000webhostapp.com/getteam.php";
-//    getdulieulich LICHDAO;
-//    ArrayList<TKB> dulieu;
-
-
+    getdulieulich dto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +48,20 @@ public class listviewtkb extends AppCompatActivity {
 
         nhandulieu();
         setuptkb();
+       // dto.getdatalv(url,CustomCalendar.dulieu,listviewtkb.this);
         trove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(listviewtkb.this,MainActivity.class));
             }
         });
+        lvtkb.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(listviewtkb.this,ngay,Toast.LENGTH_LONG).show();
+            }
+        });
+
 
 
 
@@ -62,30 +74,28 @@ public class listviewtkb extends AppCompatActivity {
         nam = bundle.getString("t3");
         date.setText(ngay + "/"+thang+"/"+nam);
     }
+
     public  void setuptkb()
     {
-//        LICHDAO = new getdulieulich();
-//        dulieu= new ArrayList<>();
-        da = new AdapterThoikhoabieu(R.layout.cttkb,listviewtkb.this,CustomCalendar.dulieu,ngay,thang,nam);
-//        dulieu.add(new TKB(1,"Lập trình","16","03","2022","K17"));
-//        dulieu.add(new TKB(1,"Lập trình","17","03","2022","K17"));
-//        dulieu.add(new TKB(1,"Lập trình Dotnet","17","03","2022","K17"));
-//        dulieu.add(new TKB(1,"Lập trình Dotnet","20","03","2022","K17"));
 
-       //  LICHDAO.getdatalv(url,dulieu,da,listviewtkb.this);
+       da = new AdapterThoikhoabieu(R.layout.cttkb,listviewtkb.this,CustomCalendar.dulieu,ngay,thang,nam);
+       for (int i=0;i<CustomCalendar.dulieu.size();i++)
+       if (CustomCalendar.dulieu.get(i).getNgay().equals(ngay)&&CustomCalendar.dulieu.get(i).getThang().equals(thang)&&CustomCalendar.dulieu.get(i).getNam().equals(nam))
+       {
 
-        for (int i = 0;i<CustomCalendar.dulieu.size();i++)
-            if (CustomCalendar.dulieu.get(i).getNgay().equals(ngay)==true&&CustomCalendar.dulieu.get(i).getThang().equals(thang)==true&&CustomCalendar.dulieu.get(i).getNam().equals(nam)==true)
-            {
-                Toast.makeText(listviewtkb.this,CustomCalendar.dulieu.get(i).getTenmon(),Toast.LENGTH_LONG).show();
-
-            }
-       else {
-                CustomCalendar.dulieu.remove(i);
-                da.notifyDataSetChanged();
-            }
-
+       }
+       else
+       {
+           CustomCalendar.dulieu.remove(i);
+           da.notifyDataSetChanged();
+       }
         lvtkb.setAdapter(da);
 
+
+
+
+
+
     }
+
 }

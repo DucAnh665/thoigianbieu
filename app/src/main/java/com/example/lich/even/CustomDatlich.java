@@ -139,27 +139,6 @@ public class CustomDatlich extends LinearLayout {
         });
     }
 
-//    public ArrayList<Events> CollectEventByDate(String date)
-//    {
-//        ArrayList<Events> arrayList = new ArrayList<>();
-//        dbOpenHelper = new DBOpen(context);
-//        SQLiteDatabase database = dbOpenHelper.getReadableDatabase();
-//        Cursor cursor = dbOpenHelper.ReadEvents(date,database);
-//        while (cursor.moveToNext()){
-//            String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
-//            String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
-//            String Date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
-//            String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
-//            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
-//            Events events = new Events(event,time,Date,month,Year);
-//            arrayList.add(events);
-//        }
-//        cursor.close();
-//        dbOpenHelper.close();
-//
-//        return  arrayList;
-//
-//    }
 
     public CustomDatlich(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);

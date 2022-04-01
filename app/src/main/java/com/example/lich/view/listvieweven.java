@@ -67,6 +67,27 @@ public class listvieweven extends AppCompatActivity {
         cursor.close();
         db.close();
     }
+    public ArrayList<Events> CollectEventByDate(String date,String thang)
+    {
+        ArrayList<Events> arrayList = new ArrayList<>();
+        db = new DBOpen(listvieweven.this);
+        SQLiteDatabase database = db.getReadableDatabase();
+        Cursor cursor = db.ReadEvents(date,thang,database);
+        while (cursor.moveToNext()){
+            String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
+            String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
+            String Date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
+            String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
+            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
+            Events events = new Events(event,time,Date,month,Year);
+            arrayList.add(events);
+        }
+        cursor.close();
+        db.close();
+
+        return  arrayList;
+
+    }
 
     public void nhandulieu()
     {
@@ -79,19 +100,7 @@ public class listvieweven extends AppCompatActivity {
     }
     public  void setupevent()
     {
-
-        da = new Adaptereven(R.layout.show_events,listvieweven.this,dulieu,ngay,thang,nam);
-        for (int i=0;i<dulieu.size();i++)
-        if (dulieu.get(i).getDATE().equals(ngay)&&dulieu.get(i).getDATE().equals(thang)&&dulieu.get(i).getDATE().equals(nam))
-            {
-                Toast.makeText(listvieweven.this,dulieu.get(i).getEVENT(),Toast.LENGTH_LONG).show();
-            }
-        else
-        {
-            dulieu.remove(i);
-            da.notifyDataSetChanged();
-        }
-
+        da = new Adaptereven(R.layout.show_events,listvieweven.this,CollectEventByDate(ngay,thang),ngay,thang,nam);
         lveven.setAdapter(da);
 
     }

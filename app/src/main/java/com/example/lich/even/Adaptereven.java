@@ -81,19 +81,14 @@ public class Adaptereven extends BaseAdapter {
             hodel = (viewhodel) view.getTag();
         }
         Events list = dulieu.get(i);
-        if (list.getDATE().equals(ngay)&&list.getMONTH().equals(thang)&&list.getYEAR().equals(nam))
-        {
+
+
+
             hodel.even.setText(list.getEVENT());
             hodel.date.setText(list.getDATE()+"/"+list.getMONTH()+"/"+list.getYEAR());
             hodel.time.setText(list.getTIME());
-        }
-        else
-        {
 
-            hodel.even.setVisibility(View.INVISIBLE);
-            hodel.date.setVisibility(View.INVISIBLE);
-            hodel.time.setVisibility(View.INVISIBLE);
-        }
+
 
 
         hodel.btxoa.setOnClickListener(new View.OnClickListener() {

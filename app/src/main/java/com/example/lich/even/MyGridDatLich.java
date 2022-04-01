@@ -77,15 +77,17 @@ public class MyGridDatLich extends ArrayAdapter {
         String dayone = String.valueOf(dayno);
         String curyear = YearFormat.format(datecale.getTime());
         String curmonth = monthFormat.format(datecale.getTime());
-        for (position=0;position<events.size();position++) {
+        for (position=0;position<events.size();position++)
+            if (events.get(position).getDATE().equals(dayone)&&events.get(position).getMONTH().equals(curmonth)&&events.get(position).getYEAR().equals(curyear))
+        {
 
-            if (events.get(position).getDATE().equals(dayone) && events.get(position).getDATE().equals(dayone) && events.get(position).getMONTH().equals(curmonth)&&events.get(position).getYEAR().equals(curyear)) {
+
                 cout++;
                 String sukien = String.valueOf(cout);
                 number.setText(sukien + "Sự kiện");
                 number.setVisibility(View.VISIBLE);
                 convertView.setBackgroundColor(Color.parseColor("#f11cfe"));
-            }
+
         }
 
         return convertView;

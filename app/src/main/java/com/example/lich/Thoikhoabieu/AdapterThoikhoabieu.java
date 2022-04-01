@@ -1,29 +1,29 @@
 package com.example.lich.Thoikhoabieu;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.lich.Model.TKB;
 import com.example.lich.R;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
 public class AdapterThoikhoabieu extends BaseAdapter {
 
     int Layout;
     Context context;
-    ArrayList<TKB> dulieu;
+    List<TKB> dulieu;
     String ngay,thang,nam;
 
-    public AdapterThoikhoabieu(int layout, Context context, ArrayList<TKB> dulieu, String ngay, String thang, String nam) {
+
+    public AdapterThoikhoabieu(int layout, Context context, List<TKB> dulieu, String ngay, String thang, String nam) {
         Layout = layout;
         this.context = context;
         this.dulieu = dulieu;
@@ -69,15 +69,20 @@ public class AdapterThoikhoabieu extends BaseAdapter {
             hodel = (viewhodel) view.getTag();
         }
         TKB list = dulieu.get(i);
-        if (list.getNgay().equals(ngay)&&list.getThang().equals(thang)&&list.getNam().equals(nam)) {
+        if (list.getNgay().equals(ngay)&&list.getThang().equals(thang)&&list.getNam().equals(nam))
+        {
             hodel.tenmon.setText(list.getTenmon());
-            hodel.thoigian.setText(list.getNgay() + "/" + list.getThang() + "/" + list.getNam());
+            hodel.thoigian.setText(list.getNgay()+"/"+list.getThang()+"/"+list.getNam());
         }
         else
         {
-            hodel.tenmon.setVisibility(view.INVISIBLE);
-            hodel.thoigian.setVisibility(view.INVISIBLE);
+            hodel.tenmon.setVisibility(View.INVISIBLE);
+            hodel.thoigian.setVisibility(View.INVISIBLE);
         }
+
+
+
+
         return view;
     }
 }

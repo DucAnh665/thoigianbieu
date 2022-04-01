@@ -14,19 +14,34 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.lich.Model.Events;
 import com.example.lich.Model.TKB;
 import com.example.lich.R;
 import com.example.lich.view.listviewtkb;
 import com.example.lich.viewmodel.getdulieulich;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class CustomCalendar extends LinearLayout {
 
@@ -106,10 +121,12 @@ public class CustomCalendar extends LinearLayout {
                 bd.putString("t3",curyear);
                 intent.putExtras(bd);
                 context.startActivity(intent);
-                 return  true;
+
+               return  true;
             }
         });
     }
+
 
 
 
@@ -139,8 +156,9 @@ public class CustomCalendar extends LinearLayout {
             monthca.add(Calendar.DAY_OF_MONTH,1);
 
         }
+
         da = new MyGridAdapter(context,dates,calendar,dulieu);
-       lichDAO.getdata(url,dulieu,da,context);
+         lichDAO.getdata(url,dulieu,da,context);
         grid.setAdapter(da);
 
 

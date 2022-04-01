@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,7 +12,9 @@ import android.widget.Toast;
 
 import com.example.lich.Model.Sinhvien;
 import com.example.lich.R;
+import com.example.lich.Thoikhoabieu.CustomCalendar;
 import com.example.lich.viewmodel.Dangnhap;
+import com.example.lich.viewmodel.getdulieulich;
 
 import java.util.ArrayList;
 
@@ -20,7 +23,9 @@ public class dangnhap extends AppCompatActivity {
     Button btndangnhap;
     TextView txtmasv,txtmatkhau;
     String url = "https://csdlapp.000webhostapp.com/login.php";
+
     Dangnhap dn;
+    getdulieulich lich;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +44,15 @@ public class dangnhap extends AppCompatActivity {
                 String matkhau = txtmatkhau.getText().toString();
                 if (taikhoan.equals("")&&matkhau.equals(""))
                 {
-                    startActivity(new Intent(dangnhap.this,home.class));                }
+                    Toast.makeText(dangnhap.this,"Vui lòng nhập đủ thông tin",Toast.LENGTH_LONG).show();
+
+
+                }
                 else
                 {
-                   // dn.dangnhap(taikhoan,matkhau,url,dangnhap.this);
+
+                    dn.dangnhap(taikhoan,matkhau,url,dangnhap.this);
+
 
 
                 }

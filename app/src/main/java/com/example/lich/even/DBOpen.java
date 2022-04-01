@@ -43,11 +43,12 @@ public class DBOpen extends SQLiteOpenHelper {
         database.insert(DBStruct.EVENT_TABLE_NAME,null,contentValues);
 
     }
-    public Cursor ReadEvents(String date, SQLiteDatabase database)
+    public Cursor ReadEvents(String ngay,String thang, SQLiteDatabase database)
     {
         String [] Projections = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
-        String Selection = DBStruct.DATE+"=?";
-        String [] SelectionsArgs = {date};
+        String Selection = DBStruct.DATE+"=? and "+ DBStruct.MONTH+"=?";
+
+        String [] SelectionsArgs = {ngay,thang};
 
         return database.query(DBStruct.EVENT_TABLE_NAME,Projections,Selection,SelectionsArgs,null,null,null);
 

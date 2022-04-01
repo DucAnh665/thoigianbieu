@@ -87,6 +87,13 @@ public class Adaptereven extends BaseAdapter {
             hodel.date.setText(list.getDATE()+"/"+list.getMONTH()+"/"+list.getYEAR());
             hodel.time.setText(list.getTIME());
         }
+        else
+        {
+
+            hodel.even.setVisibility(View.INVISIBLE);
+            hodel.date.setVisibility(View.INVISIBLE);
+            hodel.time.setVisibility(View.INVISIBLE);
+        }
 
 
         hodel.btxoa.setOnClickListener(new View.OnClickListener() {

@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="30dp"
-        android:text="Khoa:CNTT"
+        android:text="Khoa : CNTT"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -46,14 +46,15 @@
 
     <Button
         android:id="@+id/trove"
-        android:layout_width="110dp"
+        android:layout_width="150dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:backgroundTint="#2B8E85"
         android:text="Trở về"
+        android:textStyle="bold"
         android:textColor="@color/white"
-        android:textSize="15dp"></Button>
+        android:textSize="15dp"/>
 
 
 

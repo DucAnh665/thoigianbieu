@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class home extends AppCompatActivity {
 
-    ImageButton datlich,Sukien;
+    ImageButton datlich,Sukien,Thongtin;
     TextView hoten,masv;
     TextView Khoasv;
 
@@ -36,6 +36,13 @@ public class home extends AppCompatActivity {
         hoten = findViewById(R.id.txtTenSV);
         masv = findViewById(R.id.txtMaSV);
         Khoasv = findViewById(R.id.txtKhoa);
+        Thongtin = findViewById(R.id.Thongtin);
+        Thongtin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(home.this,ThongtinActivity.class));
+            }
+        });
         datlich.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

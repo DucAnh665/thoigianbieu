@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.lich.Model.Sinhvien;
+import com.example.lich.databinding.HomeCalendarBinding;
 import com.example.lich.Model.TKB;
 import com.example.lich.R;
 
@@ -16,41 +17,37 @@ import java.util.ArrayList;
 
 public class home extends AppCompatActivity {
 
-    ImageButton datlich,Sukien,Thongtin;
-    TextView hoten,masv;
-    TextView Khoasv;
+
+
+    HomeCalendarBinding binding;
 
     static String tensv = " ", Ma = " ", khoa = " ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_calendar);
+        binding = HomeCalendarBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         Anhxa();
         nhandulieu();
     }
     public void Anhxa()
     {
-        datlich = findViewById(R.id.NutLich);
-        Sukien = findViewById(R.id.SuKien);
-        hoten = findViewById(R.id.txtTenSV);
-        masv = findViewById(R.id.txtMaSV);
-        Khoasv = findViewById(R.id.txtKhoa);
-        Thongtin = findViewById(R.id.Thongtin);
-        Thongtin.setOnClickListener(new View.OnClickListener() {
+
+        binding.Thongtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(home.this,ThongtinActivity.class));
             }
         });
-        datlich.setOnClickListener(new View.OnClickListener() {
+        binding.NutLich.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(home.this,MainActivity.class));
             }
         });
 
-        Sukien.setOnClickListener(new View.OnClickListener() {
+        binding.SuKien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(home.this, MainDatlich.class));
@@ -64,8 +61,8 @@ public class home extends AppCompatActivity {
         tensv = sv.getTensv();
         Ma = sv.getMasv();
         khoa = sv.getKhoa();
-        hoten.setText(tensv);
-        masv.setText(Ma);
-        Khoasv.setText(khoa);
+        binding.txtTenSV.setText(tensv);
+        binding.txtMaSV.setText(Ma);
+        binding.txtKhoa.setText(khoa);
     }
 }

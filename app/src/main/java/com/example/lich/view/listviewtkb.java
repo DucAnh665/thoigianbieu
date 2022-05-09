@@ -20,6 +20,7 @@ import com.example.lich.Model.TKB;
 import com.example.lich.R;
 import com.example.lich.Thoikhoabieu.AdapterThoikhoabieu;
 import com.example.lich.Thoikhoabieu.CustomCalendar;
+import com.example.lich.databinding.ActivityListviewtkbBinding;
 import com.example.lich.viewmodel.getdulieulich;
 
 import java.text.SimpleDateFormat;
@@ -31,31 +32,29 @@ import java.util.Locale;
 
 public class listviewtkb extends AppCompatActivity {
 
-    ListView lvtkb;
-    TextView date,thongbao;
+    ActivityListviewtkbBinding binding;
+
     AdapterThoikhoabieu da;
     String ngay = " ",thang = " ",nam = " ";
-    Button trove;
+
     getdulieulich dto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listviewtkb);
-        lvtkb = findViewById(R.id.lvtkb);
-        date = findViewById(R.id.txtngay);
-        trove = findViewById(R.id.trove);
-        thongbao = findViewById(R.id.textthongbao);
+        binding = ActivityListviewtkbBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
 
         nhandulieu();
         setuptkb();
        // dto.getdatalv(url,CustomCalendar.dulieu,listviewtkb.this);
-        trove.setOnClickListener(new View.OnClickListener() {
+        binding.trove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(listviewtkb.this,MainActivity.class));
             }
         });
-        lvtkb.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.lvtkb.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(listviewtkb.this,ngay,Toast.LENGTH_LONG).show();
@@ -72,7 +71,7 @@ public class listviewtkb extends AppCompatActivity {
         ngay = bundle.getString("t1");
         thang = bundle.getString("t2");
         nam = bundle.getString("t3");
-        date.setText(ngay + "/"+thang+"/"+nam);
+        binding.txtngay.setText(ngay + "/"+thang+"/"+nam);
     }
 
     public  void setuptkb()
@@ -89,7 +88,7 @@ public class listviewtkb extends AppCompatActivity {
            CustomCalendar.dulieu.remove(i);
            da.notifyDataSetChanged();
        }
-        lvtkb.setAdapter(da);
+        binding.lvtkb.setAdapter(da);
 
 
 

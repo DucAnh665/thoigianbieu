@@ -30,7 +30,7 @@
             android:gravity="center"
             android:text="lich"
             android:layout_gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="italic" />
 
@@ -129,10 +129,13 @@
             android:textColor="@color/black" />
     </LinearLayout>
     <GridView
-        android:layout_margin="6dp"
+        android:id="@+id/grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/grid"
         android:numColumns="7"
+        android:layout_margin="6dp"
+        android:gravity="center"
+        android:verticalSpacing="5dp"
+        android:horizontalSpacing="5dp"/>
         />
 </LinearLayout>

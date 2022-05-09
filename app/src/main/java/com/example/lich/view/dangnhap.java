@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class dangnhap extends AppCompatActivity {
 
-    Button btndangnhap;
+    Button btndangnhap,btndatlich;
     TextView txtmasv,txtmatkhau;
     String url = "https://csdlapp.000webhostapp.com/login.php";
 
@@ -36,6 +36,7 @@ public class dangnhap extends AppCompatActivity {
         btndangnhap = findViewById(R.id.loginbutton);
         txtmasv = findViewById(R.id.username);
         txtmatkhau = findViewById(R.id.password);
+        btndatlich = findViewById(R.id.datlich);
         btndangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +58,13 @@ public class dangnhap extends AppCompatActivity {
 
                 }
 
+            }
+        });
+
+        btndatlich.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(dangnhap.this, MainDatlich.class));
             }
         });
     }

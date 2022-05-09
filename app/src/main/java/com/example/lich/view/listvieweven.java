@@ -5,17 +5,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lich.Model.Events;
 import com.example.lich.R;
-import com.example.lich.Thoikhoabieu.AdapterThoikhoabieu;
-import com.example.lich.Thoikhoabieu.CustomCalendar;
 import com.example.lich.even.Adaptereven;
-import com.example.lich.even.CustomDatlich;
-import com.example.lich.even.DBOpen;
+import com.example.lich.viewmodel.DBOpen;
 import com.example.lich.even.DBStruct;
 
 

@@ -1,7 +1,6 @@
 package com.example.lich.even;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,13 +19,11 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lich.Model.Events;
 import com.example.lich.R;
 import com.example.lich.view.listvieweven;
-import com.example.lich.view.listviewtkb;
+import com.example.lich.viewmodel.DBOpen;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

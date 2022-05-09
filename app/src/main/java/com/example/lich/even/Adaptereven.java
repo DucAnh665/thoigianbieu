@@ -9,18 +9,11 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.lich.Model.Events;
-import com.example.lich.Model.TKB;
 import com.example.lich.R;
+import com.example.lich.viewmodel.DBOpen;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 public class Adaptereven extends BaseAdapter {
 

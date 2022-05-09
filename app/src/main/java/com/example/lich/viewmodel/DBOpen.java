@@ -1,4 +1,4 @@
-package com.example.lich.even;
+package com.example.lich.viewmodel;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,11 +8,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.lich.even.DBStruct;
+
 
 public class DBOpen extends SQLiteOpenHelper {
 
 
-    private static final String CREATE_EVENTS_TABLE = "create table "+DBStruct.EVENT_TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+    private static final String CREATE_EVENTS_TABLE = "create table "+ DBStruct.EVENT_TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + DBStruct.EVENT+" TEXT, " + DBStruct.TIME+" TEXT," + DBStruct.DATE+" TEXT, "+ DBStruct.MONTH+" TEXT, "+DBStruct.YEAR+" TEXT)";
 
     private static final String DROP_EVENTS_TABLE = "DROP TABLE IF EXISTS "+DBStruct.EVENT_TABLE_NAME;

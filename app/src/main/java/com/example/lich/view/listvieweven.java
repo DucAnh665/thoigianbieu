@@ -24,83 +24,78 @@ public class listvieweven extends AppCompatActivity {
     ListView lveven;
     TextView thongbao;
     ArrayList<Events> dulieu = new ArrayList<>();
-      Adaptereven da;
-      DBOpen db;
+    Adaptereven da;
+    DBOpen db;
     Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
     SimpleDateFormat dateFormat = new SimpleDateFormat("MM yyyy", Locale.ENGLISH);
-    SimpleDateFormat monthFormat = new SimpleDateFormat("MM",Locale.ENGLISH);
-    SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy",Locale.ENGLISH);
-    SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
-    String ngay = " ",thang = " ",nam = " ";
+    SimpleDateFormat monthFormat = new SimpleDateFormat("MM", Locale.ENGLISH);
+    SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.ENGLISH);
+    SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+    String ngay = " ", thang = " ", nam = " ";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_newenvent_layout);
-        CollectEventsPerMonth(monthFormat.format(calendar.getTime()),yearFormat.format(calendar.getTime()));
+        CollectEventsPerMonth(monthFormat.format(calendar.getTime()), yearFormat.format(calendar.getTime()));
         lveven = findViewById(R.id.EventsRV);
         thongbao = findViewById(R.id.thongbaongay);
         nhandulieu();
-        da = new Adaptereven(R.layout.show_events,listvieweven.this,dulieu,ngay,thang,nam);
+        da = new Adaptereven(R.layout.show_events, listvieweven.this, dulieu, ngay, thang, nam);
         lveven.setAdapter(da);
         setupevent();
     }
 
-    private  void CollectEventsPerMonth(String Month,String year)
-    {   dulieu.clear();
+    private void CollectEventsPerMonth(String Month, String year) {
+        dulieu.clear();
         db = new DBOpen(listvieweven.this);
         SQLiteDatabase database = db.getReadableDatabase();
-        Cursor cursor = db.ReadEventsperMonth(Month,year,database);
-        while (cursor.moveToNext())
-        {
+        Cursor cursor = db.ReadEventsperMonth(Month, year, database);
+        while (cursor.moveToNext()) {
             String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
             String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
             String date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
             String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
             String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
-            Events events = new Events(event,time,date,month,Year);
+            Events events = new Events(event, time, date, month, Year);
             dulieu.add(events);
         }
         cursor.close();
         db.close();
     }
-    public ArrayList<Events> CollectEventByDate(String date,String thang)
-    {
+
+    public ArrayList<Events> CollectEventByDate(String date, String thang) {
         ArrayList<Events> arrayList = new ArrayList<>();
         db = new DBOpen(listvieweven.this);
         SQLiteDatabase database = db.getReadableDatabase();
-        Cursor cursor = db.ReadEvents(date,thang,database);
-        while (cursor.moveToNext()){
+        Cursor cursor = db.ReadEvents(date, thang, database);
+        while (cursor.moveToNext()) {
             String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
             String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
             String Date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
             String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
             String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
-            Events events = new Events(event,time,Date,month,Year);
+            Events events = new Events(event, time, Date, month, Year);
             arrayList.add(events);
         }
         cursor.close();
         db.close();
-
-        return  arrayList;
-
+        return arrayList;
     }
 
-    public void nhandulieu()
-    {
+    public void nhandulieu() {
         Bundle bundle = getIntent().getExtras();
         ngay = bundle.getString("t1");
         thang = bundle.getString("t2");
         nam = bundle.getString("t3");
-        thongbao.setText(ngay+"/"+thang+"/"+nam);
+        thongbao.setText(ngay + "/" + thang + "/" + nam);
 
     }
-    public  void setupevent()
-    {
-        da = new Adaptereven(R.layout.show_events,listvieweven.this,CollectEventByDate(ngay,thang),ngay,thang,nam);
+
+    public void setupevent() {
+        da = new Adaptereven(R.layout.show_events, listvieweven.this, CollectEventByDate(ngay, thang), ngay, thang, nam);
         lveven.setAdapter(da);
-
     }
-
 
 
 }

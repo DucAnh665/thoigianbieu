@@ -33,7 +33,6 @@ public class home extends AppCompatActivity {
     }
     public void Anhxa()
     {
-
         binding.Thongtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

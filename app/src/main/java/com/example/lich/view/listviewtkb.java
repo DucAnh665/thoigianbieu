@@ -35,65 +35,53 @@ public class listviewtkb extends AppCompatActivity {
     ActivityListviewtkbBinding binding;
 
     AdapterThoikhoabieu da;
-    String ngay = " ",thang = " ",nam = " ";
+    String ngay = " ", thang = " ", nam = " ";
 
     getdulieulich dto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityListviewtkbBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
         nhandulieu();
         setuptkb();
-       // dto.getdatalv(url,CustomCalendar.dulieu,listviewtkb.this);
+        // dto.getdatalv(url,CustomCalendar.dulieu,listviewtkb.this);
         binding.trove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(listviewtkb.this,MainActivity.class));
+                startActivity(new Intent(listviewtkb.this, MainActivity.class));
             }
         });
         binding.lvtkb.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(listviewtkb.this,ngay,Toast.LENGTH_LONG).show();
+                Toast.makeText(listviewtkb.this, ngay, Toast.LENGTH_LONG).show();
             }
         });
 
 
-
-
     }
-    public void nhandulieu()
-    {
+
+    public void nhandulieu() {
         Bundle bundle = getIntent().getExtras();
         ngay = bundle.getString("t1");
         thang = bundle.getString("t2");
         nam = bundle.getString("t3");
-        binding.txtngay.setText(ngay + "/"+thang+"/"+nam);
+        binding.txtngay.setText(ngay + "/" + thang + "/" + nam);
     }
 
-    public  void setuptkb()
-    {
+    public void setuptkb() {
 
-       da = new AdapterThoikhoabieu(R.layout.cttkb,listviewtkb.this,CustomCalendar.dulieu,ngay,thang,nam);
-       for (int i=0;i<CustomCalendar.dulieu.size();i++)
-       if (CustomCalendar.dulieu.get(i).getNgay().equals(ngay)&&CustomCalendar.dulieu.get(i).getThang().equals(thang)&&CustomCalendar.dulieu.get(i).getNam().equals(nam))
-       {
+        da = new AdapterThoikhoabieu(R.layout.cttkb, listviewtkb.this, CustomCalendar.dulieu, ngay, thang, nam);
+        for (int i = 0; i < CustomCalendar.dulieu.size(); i++)
+            if (CustomCalendar.dulieu.get(i).getNgay().equals(ngay) && CustomCalendar.dulieu.get(i).getThang().equals(thang) && CustomCalendar.dulieu.get(i).getNam().equals(nam)) {
 
-       }
-       else
-       {
-           CustomCalendar.dulieu.remove(i);
-           da.notifyDataSetChanged();
-       }
+            } else {
+                CustomCalendar.dulieu.remove(i);
+                da.notifyDataSetChanged();
+            }
         binding.lvtkb.setAdapter(da);
-
-
-
-
-
 
     }
 

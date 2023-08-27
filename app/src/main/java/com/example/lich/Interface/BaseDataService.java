@@ -6,10 +6,17 @@ import com.example.lich.Model.UserResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 public interface BaseDataService {
+
+    @FormUrlEncoded
     @POST(WSConfig.Api.LOGIN)
-    Call<UserResponse> login(@Body UserRequest loginRequest);
+    Call<UserResponse> loginUser(
+            @Field("codeStudent") String codeStudent,
+            @Field("passWord") String passWord
+    );
+
 }

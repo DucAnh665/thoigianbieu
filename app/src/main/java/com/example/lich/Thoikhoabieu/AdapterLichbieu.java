@@ -44,7 +44,6 @@ public class AdapterLichbieu extends RecyclerView.Adapter<AdapterLichbieu.viewho
             holder.somon.setText(dulieu.get(position).getTenmon());
 
         }
-
     }
 
     @Override

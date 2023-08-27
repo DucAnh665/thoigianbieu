@@ -95,8 +95,6 @@ public class CustomDatlich extends LinearLayout {
                 EditText Eventtime = addView.findViewById(R.id.eventtimes);
                 Button Buttonthem = addView.findViewById(R.id.addsukien);
 
-
-
                 String date = dateFormat.format(dates.get(i));
                 String month = monthFormat.format(dates.get(i));
                 String year = yearFormat.format(dates.get(i));

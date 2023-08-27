@@ -9,7 +9,7 @@ public class UserResponse {
     @SerializedName("statusCode")
     @Expose
     private int statusCode;
-    @SerializedName("massage")
+    @SerializedName("message")
     @Expose
     private String massage;
     @SerializedName("data")
@@ -49,19 +49,36 @@ public class UserResponse {
                 '}';
     }
 
-    class User {
+    public static class User {
         @SerializedName("userName")
         @Expose
         public String userName;
         @SerializedName("codeStudent")
         @Expose
         public String codeStudent;
-        @SerializedName("idFaculty")
+        @SerializedName("nameFaculty")
         @Expose
-        public String idFaculty;
-        @SerializedName("idClass")
+        public String nameFaculty;
+        @SerializedName("nameClass")
         @Expose
-        public String idClass;
+        public String nameClass;
+
+        @SerializedName("image")
+        @Expose
+        public String image;
+
+        @SerializedName("passWord")
+        @Expose
+        public String passWord;
+
+        public User(String userName, String codeStudent, String nameFaculty, String nameClass, String image, String passWord) {
+            this.userName = userName;
+            this.codeStudent = codeStudent;
+            this.nameFaculty = nameFaculty;
+            this.nameClass = nameClass;
+            this.image = image;
+            this.passWord = passWord;
+        }
 
         public String getUserName() {
             return userName;
@@ -79,20 +96,36 @@ public class UserResponse {
             this.codeStudent = codeStudent;
         }
 
-        public String getIdFaculty() {
-            return idFaculty;
+        public String getNameFaculty() {
+            return nameFaculty;
         }
 
-        public void setIdFaculty(String idFaculty) {
-            this.idFaculty = idFaculty;
+        public void setNameFaculty(String nameFaculty) {
+            this.nameFaculty = nameFaculty;
         }
 
-        public String getIdClass() {
-            return idClass;
+        public String getNameClass() {
+            return nameClass;
         }
 
-        public void setIdClass(String idClass) {
-            this.idClass = idClass;
+        public void setNameClass(String nameClass) {
+            this.nameClass = nameClass;
+        }
+
+        public String getImage() {
+            return image;
+        }
+
+        public void setImage(String image) {
+            this.image = image;
+        }
+
+        public String getPassWord() {
+            return passWord;
+        }
+
+        public void setPassWord(String passWord) {
+            this.passWord = passWord;
         }
     }
 }

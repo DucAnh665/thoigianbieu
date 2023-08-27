@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.lich"
-        minSdk 21
+        minSdk 23
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -22,6 +22,9 @@ android {
         }
     }
 
+    dataBinding {
+        enabled = true
+    }
     buildFeatures {
         viewBinding true
     }
@@ -30,9 +33,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    buildFeatures {
-        viewBinding true
-    }
 }
 
 
@@ -55,4 +55,8 @@ dependencies {
     //glide libs
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation project(':baseapp')
+    implementation project(':baseauthentication')
 }

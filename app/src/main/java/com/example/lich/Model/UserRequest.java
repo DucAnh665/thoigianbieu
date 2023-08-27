@@ -6,22 +6,25 @@ import com.google.gson.annotations.SerializedName;
 public class UserRequest {
 
     @SerializedName("codeStudent")
-    @Expose
-    private String studentCode;
-    @SerializedName("passWord")
-    @Expose
-    private  String passWord;
+    private String codeStudent;
 
-    public UserRequest(String studentCode, String passWord) {
-        this.studentCode = studentCode;
-        this.passWord = passWord;
+    @SerializedName("passWord")
+    private String passWord;
+
+
+    public String getCodeStudent() {
+        return codeStudent;
     }
 
-    @Override
-    public String toString() {
-        return "UserRequest{" +
-                "studentCode='" + studentCode + '\'' +
-                ", passWord='" + passWord + '\'' +
-                '}';
+    public void setCodeStudent(String codeStudent) {
+        this.codeStudent = codeStudent;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 }

@@ -81,6 +81,13 @@ public class home extends AppCompatActivity {
                 startListening();
             }
         });
+
+        binding.btnChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(home.this, ChangePassword.class));
+            }
+        });
     }
 
     private void startListening() {
@@ -126,7 +133,7 @@ public class home extends AppCompatActivity {
                         RecognizerIntent.EXTRA_RESULTS);
                 String message = Objects.requireNonNull(result).get(0);
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-                if (message.contains("lịch học")||message.contains("thời khóa biểu")) {
+                if (message.contains("lịch học") || message.contains("thời khóa biểu")) {
                     startActivity(new Intent(home.this, MainActivity.class));
                 }
             }
@@ -137,6 +144,10 @@ public class home extends AppCompatActivity {
         binding.txtTenSV.setText(dataUserStorage.loadData().getUserName());
         binding.txtMaSV.setText(dataUserStorage.loadData().getCodeStudent());
         binding.txtKhoa.setText(dataUserStorage.loadData().getNameFaculty());
-        Picasso.get().load(dataUserStorage.loadData().getImage()).into(binding.icon);
+        if (!dataUserStorage.loadData().getImage().equals("")) {
+            Picasso.get().load(dataUserStorage.loadData().getImage()).into(binding.icon);
+        } else {
+
+        }
     }
 }

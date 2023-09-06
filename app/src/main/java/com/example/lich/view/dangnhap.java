@@ -99,7 +99,7 @@ public class dangnhap extends AppCompatActivity {
             Log.e("Thông báo", "Quyền chưa được cấp");
         } else {
             Log.e("Thông báo", "Quyền đã được cấp");
-            if (dataUserStorage.loadData().getUserName().equals("")) {
+            if (dataUserStorage.loadData()==null&&dataUserStorage.loadData().getUserName().equals("")) {
 
             } else {
                 loginViewModel.login(dataUserStorage.loadData().getCodeStudent(), dataUserStorage.loadData().getPassWord(), dangnhap.this);

@@ -1,6 +1,7 @@
 package com.example.lich.Interface;
 
 import com.example.lich.Config.WSConfig;
+import com.example.lich.Model.StatusResponse;
 import com.example.lich.Model.UserRequest;
 import com.example.lich.Model.UserResponse;
 
@@ -18,5 +19,10 @@ public interface BaseDataService {
             @Field("codeStudent") String codeStudent,
             @Field("passWord") String passWord
     );
+    @FormUrlEncoded
+    @POST(WSConfig.Api.CHANGE_PASSWORD)
+    Call<StatusResponse> changePassWord(@Field("codeStudent") String codeStudent,
+                                        @Field("passWord") String passWord);
+
 
 }

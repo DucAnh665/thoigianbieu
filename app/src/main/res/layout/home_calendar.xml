@@ -261,7 +261,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="ICTU mãi CHẤTTTTT"
+            android:text="Dương ơi! Ra trường thôi "
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="italic"></TextView>

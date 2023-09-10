@@ -20,7 +20,7 @@ public class AdapterThoikhoabieu extends BaseAdapter {
     int Layout;
     Context context;
     List<TKB> dulieu;
-    String ngay,thang,nam;
+    String ngay, thang, nam;
 
 
     public AdapterThoikhoabieu(int layout, Context context, List<TKB> dulieu, String ngay, String thang, String nam) {
@@ -46,41 +46,42 @@ public class AdapterThoikhoabieu extends BaseAdapter {
     public long getItemId(int i) {
         return 0;
     }
-    class viewhodel
-    {
-        TextView tenmon,thoigian;
+
+    class viewhodel {
+        TextView tenmon, thoigian, sotinchi, index, nameTeacher;
     }
+
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         viewhodel hodel;
 
-        if (view == null)
-        {
+        if (view == null) {
             hodel = new viewhodel();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(Layout,null);
+            view = inflater.inflate(Layout, null);
             hodel.tenmon = (TextView) view.findViewById(R.id.txttenmon);
             hodel.thoigian = (TextView) view.findViewById(R.id.txtthoigian);
+            hodel.sotinchi = (TextView) view.findViewById(R.id.txt_number);
+            hodel.index = (TextView) view.findViewById(R.id.txtindex);
+            hodel.nameTeacher = (TextView) view.findViewById(R.id.txt_nameTeacher);
             view.setTag(hodel);
-
-        }
-        else
-        {
+        } else {
             hodel = (viewhodel) view.getTag();
         }
         TKB list = dulieu.get(i);
-        if (list.getNgay().equals(ngay)&&list.getThang().equals(thang)&&list.getNam().equals(nam))
-        {
+        if (list.getNgay().equals(ngay) && list.getThang().equals(thang) && list.getNam().equals(nam)) {
             hodel.tenmon.setText(list.getTenmon());
-            hodel.thoigian.setText(list.getNgay()+"/"+list.getThang()+"/"+list.getNam());
-        }
-        else
-        {
+            hodel.index.setText("Tiết: " + i + 1 + "");
+            hodel.thoigian.setText(list.getNgay() + "/" + list.getThang() + "/" + list.getNam());
+            hodel.sotinchi.setText("Số tín: " + list.getId());
+            hodel.nameTeacher.setText("Giảng viên: " + list.getGiangvien());
+        } else {
             hodel.tenmon.setVisibility(View.INVISIBLE);
             hodel.thoigian.setVisibility(View.INVISIBLE);
+            hodel.index.setVisibility(View.INVISIBLE);
+            hodel.sotinchi.setVisibility(View.INVISIBLE);
+            hodel.nameTeacher.setVisibility(View.INVISIBLE);
         }
-
-
 
 
         return view;

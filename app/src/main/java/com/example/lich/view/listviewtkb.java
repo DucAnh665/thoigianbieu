@@ -1,34 +1,17 @@
 package com.example.lich.view;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.lich.Model.TKB;
 import com.example.lich.R;
 import com.example.lich.Thoikhoabieu.AdapterThoikhoabieu;
 import com.example.lich.Thoikhoabieu.CustomCalendar;
 import com.example.lich.databinding.ActivityListviewtkbBinding;
-import com.example.lich.viewmodel.getdulieulich;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import com.example.lich.shared.DataStoreSubject;
 
 public class listviewtkb extends AppCompatActivity {
 
@@ -37,7 +20,7 @@ public class listviewtkb extends AppCompatActivity {
     AdapterThoikhoabieu da;
     String ngay = " ", thang = " ", nam = " ";
 
-    getdulieulich dto;
+    DataStoreSubject dataStoreSubject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +29,11 @@ public class listviewtkb extends AppCompatActivity {
         setContentView(binding.getRoot());
         nhandulieu();
         setuptkb();
-        // dto.getdatalv(url,CustomCalendar.dulieu,listviewtkb.this);
+        dataStoreSubject = new DataStoreSubject(this);
         binding.trove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(listviewtkb.this, MainActivity.class));
+                finish();
             }
         });
         binding.lvtkb.setOnItemClickListener(new AdapterView.OnItemClickListener() {

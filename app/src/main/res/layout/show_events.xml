@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_margin="10dp"
-
    >
 
     <androidx.cardview.widget.CardView
@@ -24,49 +23,81 @@
             android:background="@drawable/vien"
             android:layout_marginBottom="10dp"
             >
-
             <TextView
                 android:visibility="invisible"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:id="@+id/eventdate"
                 android:textStyle="bold"
                 android:text="date"
                 android:textSize="15dp"
                 />
-            <TextView
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/black"
-                android:id="@+id/eventname"
-                android:textStyle="bold"
-                android:text="date"
-                android:textSize="40dp"
-                />
-            <TextView
+                >
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/image_event"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:id="@+id/eventname"
+                    android:textStyle="bold"
+                    android:text="date"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="40dp"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/black"
-                android:id="@+id/eventtime"
-                android:textStyle="bold"
-                android:text="date"
-                android:textSize="40dp"
-                />
+                >
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/time"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:id="@+id/eventtime"
+                    android:textStyle="bold"
+                    android:text="date"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="40dp"
+                    />
+            </LinearLayout>
             <Button
                 android:layout_marginTop="20dp"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/delete"
-                android:text="Delete"
+                android:text="Xóa sự kiện"
                 android:textSize="25dp"
                 android:textAllCaps="false"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:backgroundTint="#2B8E85"
                 android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
                 />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

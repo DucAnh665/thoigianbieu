@@ -3,53 +3,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.datlich"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".view.datlich">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/light_blue_900"
         android:orientation="horizontal"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:background="#80CBC4"
-        >
-    <ImageButton
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/pre"
-        android:background="@drawable/ic_back"
-        android:layout_margin="10dp"
-        />
+        android:paddingBottom="8dp">
+
+        <ImageButton
+            android:id="@+id/pre"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/ic_back" />
 
         <TextView
             android:id="@+id/current"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="4dp"
             android:layout_weight="3"
             android:gravity="center"
             android:text="lich"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="italic" />
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <ImageButton
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/next"
-        android:background="@drawable/ic_next"
-        android:layout_margin="10dp"
-        />
+            android:id="@+id/next"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/ic_next" />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="43dp"
+        android:layout_marginTop="7dp"
         android:orientation="horizontal"
         android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:layout_marginTop="7dp">
+        android:paddingBottom="4dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,9 +55,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="T2"
-            android:textStyle="italic"
+            android:textColor="@color/black"
             android:textSize="20dp"
-            android:textColor="@color/black"/>
+            android:textStyle="italic" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,9 +66,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="T3"
-            android:textStyle="italic"
+            android:textColor="@color/black"
             android:textSize="20dp"
-            android:textColor="@color/black" />
+            android:textStyle="italic" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -80,9 +77,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="T4"
-            android:textStyle="italic"
+            android:textColor="@color/black"
             android:textSize="20dp"
-            android:textColor="@color/black" />
+            android:textStyle="italic" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -91,9 +88,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="T5"
-            android:textStyle="italic"
+            android:textColor="@color/black"
             android:textSize="20dp"
-            android:textColor="@color/black"/>
+            android:textStyle="italic" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,9 +99,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="T6"
-            android:textStyle="italic"
+            android:textColor="@color/black"
             android:textSize="20dp"
-            android:textColor="@color/black" />
+            android:textStyle="italic" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -113,9 +110,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="T7"
-            android:textStyle="italic"
+            android:textColor="@color/black"
             android:textSize="20dp"
-            android:textColor="@color/black" />
+            android:textStyle="italic" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -124,18 +121,19 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="CN"
-            android:textStyle="italic"
+            android:textColor="@color/black"
             android:textSize="20dp"
-            android:textColor="@color/black" />
+            android:textStyle="italic" />
     </LinearLayout>
+
     <GridView
         android:id="@+id/grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="7"
         android:layout_margin="6dp"
         android:gravity="center"
-        android:verticalSpacing="5dp"
-        android:horizontalSpacing="5dp"/>
-        />
+        android:horizontalSpacing="5dp"
+        android:numColumns="7"
+        android:verticalSpacing="5dp" />
+    />
 </LinearLayout>

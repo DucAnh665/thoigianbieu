@@ -64,7 +64,7 @@ public class MyGridDatLich extends ArrayAdapter {
         }
         if (displaymonth==curenMonth && displayyear==currenyear)
         {
-            convertView.setBackgroundColor(getContext().getResources().getColor(R.color.teal_200));
+            convertView.setBackgroundColor(getContext().getResources().getColor(R.color.light_blue_900));
         }
         else
         {
@@ -80,13 +80,11 @@ public class MyGridDatLich extends ArrayAdapter {
         for (position=0;position<events.size();position++)
             if (events.get(position).getDATE().equals(dayone)&&events.get(position).getMONTH().equals(curmonth)&&events.get(position).getYEAR().equals(curyear))
         {
-
-
                 cout++;
                 String sukien = String.valueOf(cout);
                 number.setText(sukien + "Sự kiện");
                 number.setVisibility(View.VISIBLE);
-                convertView.setBackgroundColor(Color.parseColor("#f11cfe"));
+                convertView.setBackgroundColor(getContext().getResources().getColor(R.color.teal_200));
 
         }
 

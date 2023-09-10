@@ -44,7 +44,7 @@ public class CustomDatlich extends LinearLayout {
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd",Locale.ENGLISH);
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM",Locale.ENGLISH);
     SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy",Locale.ENGLISH);
-   // SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
+    SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
 
     String curdate = " ",curyear = " ";
     String curmont = " ";
@@ -88,13 +88,13 @@ public class CustomDatlich extends LinearLayout {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
 
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setCancelable(true);
                 View addView = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_newevent_layout,null);
                 EditText Eventname = addView.findViewById(R.id.eventnames);
                 EditText Eventtime = addView.findViewById(R.id.eventtimes);
                 Button Buttonthem = addView.findViewById(R.id.addsukien);
-
                 String date = dateFormat.format(dates.get(i));
                 String month = monthFormat.format(dates.get(i));
                 String year = yearFormat.format(dates.get(i));
@@ -168,7 +168,6 @@ public class CustomDatlich extends LinearLayout {
     }
     private void SetUpCalender()
     {
-
         curdate = dateFormat.format(calendar.getTime());
         curyear = yearFormat.format(calendar.getTime());
         curmont = monthFormat.format(calendar.getTime());

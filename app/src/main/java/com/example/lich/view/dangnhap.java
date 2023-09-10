@@ -5,22 +5,18 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lich.Model.UserResponse;
 import com.example.lich.databinding.ActivityDangnhapBinding;
 import com.example.lich.shared.DataUserStorage;
 import com.example.lich.viewmodel.LoginViewModel;
-import com.example.lich.viewmodel.getdulieulich;
 
 import java.util.List;
 
@@ -41,7 +37,6 @@ public class dangnhap extends AppCompatActivity {
         binding.loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 taikhoan = binding.username.getText().toString();
                 matkhau = binding.password.getText().toString();
                 if (taikhoan.equals("") && matkhau.equals("")) {
@@ -87,6 +82,13 @@ public class dangnhap extends AppCompatActivity {
                 startActivity(new Intent(dangnhap.this, MainDatlich.class));
             }
         });
+
+        binding.btnForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(dangnhap.this, ForgotPassWord.class));
+            }
+        });
         getPermissionOverlay();
     }
 
@@ -99,9 +101,13 @@ public class dangnhap extends AppCompatActivity {
             Log.e("Thông báo", "Quyền chưa được cấp");
         } else {
             Log.e("Thông báo", "Quyền đã được cấp");
-            if (dataUserStorage.loadData()==null&&dataUserStorage.loadData().getUserName().equals("")) {
+            if (dataUserStorage.loadData() == null && dataUserStorage.loadData().getUserName().equals("")) {
 
             } else {
+                taikhoan = dataUserStorage.loadData().getCodeStudent();
+                matkhau = dataUserStorage.loadData().getPassWord();
+                binding.username.setText(taikhoan);
+                binding.password.setText(matkhau);
                 loginViewModel.login(dataUserStorage.loadData().getCodeStudent(), dataUserStorage.loadData().getPassWord(), dangnhap.this);
             }
         }

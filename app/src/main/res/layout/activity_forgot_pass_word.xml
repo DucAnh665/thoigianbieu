@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="@dimen/size20dp"
+    tools:context=".view.ForgotPassWord">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/boder_login"
+        android:padding="20dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Quên mât khẩu!"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Sử dụng tài khoản SAMONLINE của bạn"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#485494B5"
+            android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+            android:hint="Mã sinh viên"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/txt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#485494B5"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:hint="Nhập mật khẩu"
+            android:textColorHint="@color/white"
+            android:inputType="textPassword"
+            android:padding="6dp"
+            android:textSize="20dp"
+            android:visibility="gone"
+            />
+
+        <EditText
+            android:id="@+id/txt_password_again"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#485494B5"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:hint="Nhập lại mật khẩu"
+            android:inputType="textPassword"
+            android:padding="6dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_forgot_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#3F6EB5"
+            android:hint="Kiểm tra thông tin"
+            android:layout_marginHorizontal="10dp"
+            android:textColorHint="@color/white"
+            android:background="@color/cardview_shadow_start_color"
+            android:textSize="17dp"
+            android:textStyle="bold"></Button>
+
+    </LinearLayout>
+</LinearLayout>

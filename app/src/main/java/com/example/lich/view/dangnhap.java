@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -90,6 +91,17 @@ public class dangnhap extends AppCompatActivity {
             }
         });
         getPermissionOverlay();
+        binding.cbShowPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.cbShowPassword.isChecked()) {
+                    binding.password.setInputType(InputType.TYPE_CLASS_TEXT);
+                } else {
+                    binding.password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+            }
+        });
+
     }
 
 
@@ -101,14 +113,14 @@ public class dangnhap extends AppCompatActivity {
             Log.e("Thông báo", "Quyền chưa được cấp");
         } else {
             Log.e("Thông báo", "Quyền đã được cấp");
-            if (dataUserStorage.loadData() == null && dataUserStorage.loadData().getUserName().equals("")) {
-
-            } else {
+            if (dataUserStorage.loadData() != null && !dataUserStorage.loadData().getUserName().equals("")) {
                 taikhoan = dataUserStorage.loadData().getCodeStudent();
                 matkhau = dataUserStorage.loadData().getPassWord();
                 binding.username.setText(taikhoan);
                 binding.password.setText(matkhau);
                 loginViewModel.login(dataUserStorage.loadData().getCodeStudent(), dataUserStorage.loadData().getPassWord(), dangnhap.this);
+            } else {
+
             }
         }
     }

@@ -71,6 +71,7 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dataUserStorage.clearData();
+                startActivity(new Intent(home.this, dangnhap.class));
                 finish();
             }
         });
@@ -135,6 +136,20 @@ public class home extends AppCompatActivity {
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show();
                 if (message.contains("lịch học") || message.contains("thời khóa biểu")) {
                     startActivity(new Intent(home.this, MainActivity.class));
+                }
+                if (message.contains("Đặt lịch") || message.contains("xem lịch") || message.contains("lịch")) {
+                    startActivity(new Intent(home.this, MainDatlich.class));
+                }
+
+                if (message.contains("đăng xuất")) {
+                    startActivity(new Intent(home.this, dangnhap.class));
+                    dataUserStorage.clearData();
+                    finish();
+                }
+                if (message.contains("Đổi tài khoản")){
+                    startActivity(new Intent(home.this, dangnhap.class));
+                    dataUserStorage.clearData();
+                    finish();
                 }
             }
         }

@@ -116,9 +116,7 @@ public class dangnhap extends AppCompatActivity {
             if (dataUserStorage.loadData() != null && !dataUserStorage.loadData().getUserName().equals("")) {
                 taikhoan = dataUserStorage.loadData().getCodeStudent();
                 matkhau = dataUserStorage.loadData().getPassWord();
-                binding.username.setText(taikhoan);
-                binding.password.setText(matkhau);
-                loginViewModel.login(dataUserStorage.loadData().getCodeStudent(), dataUserStorage.loadData().getPassWord(), dangnhap.this);
+                startActivity(new Intent(this, home.class));
             } else {
 
             }

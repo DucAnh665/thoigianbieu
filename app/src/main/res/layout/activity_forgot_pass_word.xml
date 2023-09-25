@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Quên mât khẩu!"
+            android:text="Quên mật khẩu!"
             android:textSize="40dp"
             android:textColor="@color/white"
             android:textStyle="bold" />

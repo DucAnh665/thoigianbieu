@@ -132,6 +132,5 @@
             android:textColorHint="@color/white"
             android:textSize="17dp"
             android:textStyle="bold"></Button>
-
     </LinearLayout>
 </ScrollView>

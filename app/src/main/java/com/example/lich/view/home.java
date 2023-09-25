@@ -9,6 +9,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.lich.databinding.HomeCalendarBinding;
+import com.example.lich.service.SamOnlineService;
 import com.example.lich.shared.DataUserStorage;
 import com.example.lich.viewmodel.LoginViewModel;
 import com.squareup.picasso.Picasso;
@@ -44,6 +46,7 @@ public class home extends AppCompatActivity {
         binding = HomeCalendarBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         dataUserStorage = new DataUserStorage(this);
+
         Anhxa();
         nhandulieu();
 
@@ -51,6 +54,7 @@ public class home extends AppCompatActivity {
 
     public void Anhxa() {
 
+<<<<<<< HEAD
         binding.btnUpdateUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +68,11 @@ public class home extends AppCompatActivity {
                 startActivity(new Intent(home.this, ThongtinActivity.class));
             }
         });
+=======
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(new Intent(this,SamOnlineService.class));
+        }
+>>>>>>> e1b5ba039863719484b9624fc4585bec9990e82f
         binding.NutLich.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

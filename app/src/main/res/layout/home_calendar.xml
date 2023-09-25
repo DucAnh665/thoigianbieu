@@ -109,19 +109,19 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/DatLich"
+                android:id="@+id/btn_update_user"
                 android:layout_width="54dp"
                 android:layout_height="52dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="3dp"
-                android:background="@drawable/img_2gc" />
+                android:background="@drawable/graduated" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Ghi chú"
+                android:text="Thông tin cá nhân"
                 android:textColor="@color/black"
                 android:textSize="13dp"
                 android:textStyle="bold"></TextView>

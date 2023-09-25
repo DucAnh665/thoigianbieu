@@ -14,6 +14,10 @@ public class DataUserStorage {
 
     private static final String KEY_PASSWORD = "passWord";
 
+
+    private static final String KEY_ADDRESS = "address";
+    private static final String KEY_BIRTHDAY = "birthday";
+
     private static final String KEY_IMAGE = "image";
 
     private String passWord;
@@ -29,13 +33,15 @@ public class DataUserStorage {
         editor = sharedPreferences.edit();
     }
 
-    public void saveData(String userName, String codeStudent, String nameClass, String nameFaulty, String image, String passWord) {
+    public void saveData(String userName, String codeStudent, String nameClass, String nameFaulty, String image, String passWord, String address, String birthday) {
         editor.putString(KEY_USERNAME, userName);
         editor.putString(KEY_CODE_STUDENT, codeStudent);
         editor.putString(KEY_NAME_CLASS, nameClass);
         editor.putString(KEY_NAME_FACULTY, nameFaulty);
         editor.putString(KEY_IMAGE, image);
         editor.putString(KEY_PASSWORD, passWord);
+        editor.putString(KEY_ADDRESS, address);
+        editor.putString(KEY_BIRTHDAY, birthday);
         editor.apply();
     }
 
@@ -47,7 +53,9 @@ public class DataUserStorage {
         String nameFaculty = sharedPreferences.getString(KEY_NAME_FACULTY, "");
         String image = sharedPreferences.getString(KEY_IMAGE, "");
         String passWord = sharedPreferences.getString(KEY_PASSWORD, "");
-        return new UserResponse.User(userName, codeStudent, nameClass, nameFaculty, image, passWord);
+        String address = sharedPreferences.getString(KEY_ADDRESS, "");
+        String birthday = sharedPreferences.getString(KEY_BIRTHDAY, "");
+        return new UserResponse.User(userName, codeStudent, nameClass, nameFaculty, image, passWord, address, birthday);
     }
 
     public void clearData() {

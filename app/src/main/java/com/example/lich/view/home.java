@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.Manifest;
 import android.content.Intent;
@@ -22,8 +23,11 @@ import com.example.lich.viewmodel.LoginViewModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class home extends AppCompatActivity {
 
@@ -46,6 +50,13 @@ public class home extends AppCompatActivity {
     }
 
     public void Anhxa() {
+
+        binding.btnUpdateUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(home.this, UpdateUser.class));
+            }
+        });
 
         binding.Thongtin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +139,7 @@ public class home extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        List<String> dataTime = new ArrayList<>();
         if (requestCode == 1) {
             if (resultCode == RESULT_OK && data != null) {
                 ArrayList<String> result = data.getStringArrayListExtra(
@@ -138,6 +150,19 @@ public class home extends AppCompatActivity {
                     startActivity(new Intent(home.this, MainActivity.class));
                 }
                 if (message.contains("Đặt lịch") || message.contains("xem lịch") || message.contains("lịch")) {
+                    Pattern pattern = Pattern.compile("\\d+"); // Biểu thức chính quy để tìm các số
+                    Matcher matcher = pattern.matcher(message);
+                    while (matcher.find()) {
+                        String number = matcher.group(); // Lấy số tìm thấy
+                        dataTime.add(number);
+                        System.out.println("Số: " + number);
+                    }
+                    Log.e("Test", dataTime.size() + "");
+                    Intent intent = new Intent("calendar");
+                    intent.putExtra("day", dataTime.get(0));
+                    intent.putExtra("month", dataTime.get(1));
+                    intent.putExtra("year", dataTime.get(2));
+                    LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
                     startActivity(new Intent(home.this, MainDatlich.class));
                 }
 
@@ -146,11 +171,12 @@ public class home extends AppCompatActivity {
                     dataUserStorage.clearData();
                     finish();
                 }
-                if (message.contains("Đổi tài khoản")){
+                if (message.contains("Đổi tài khoản")) {
                     startActivity(new Intent(home.this, dangnhap.class));
                     dataUserStorage.clearData();
                     finish();
                 }
+
             }
         }
     }

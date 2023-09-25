@@ -71,13 +71,26 @@ public class UserResponse {
         @Expose
         public String passWord;
 
-        public User(String userName, String codeStudent, String nameFaculty, String nameClass, String image, String passWord) {
+        @SerializedName("address")
+        @Expose
+        private String address;
+
+        @SerializedName("birthday")
+        @Expose
+        private String birthday;
+
+
+
+
+        public User(String userName, String codeStudent, String nameFaculty, String nameClass, String image, String passWord,String address,String birthday) {
             this.userName = userName;
             this.codeStudent = codeStudent;
             this.nameFaculty = nameFaculty;
             this.nameClass = nameClass;
             this.image = image;
             this.passWord = passWord;
+            this.address = address;
+            this.birthday = birthday;
         }
 
         public String getUserName() {
@@ -126,6 +139,22 @@ public class UserResponse {
 
         public void setPassWord(String passWord) {
             this.passWord = passWord;
+        }
+
+        public String getAddress() {
+            return address;
+        }
+
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+        public String getBirthday() {
+            return birthday;
+        }
+
+        public void setBirthday(String birthday) {
+            this.birthday = birthday;
         }
     }
 }

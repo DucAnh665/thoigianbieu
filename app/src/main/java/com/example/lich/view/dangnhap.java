@@ -59,7 +59,9 @@ public class dangnhap extends AppCompatActivity {
                         users.get(0).getNameClass(),
                         users.get(0).getNameFaculty(),
                         users.get(0).getImage(),
-                        users.get(0).getPassWord()
+                        users.get(0).getPassWord(),
+                        users.get(0).getAddress(),
+                        users.get(0).getBirthday()
                 );
 
 

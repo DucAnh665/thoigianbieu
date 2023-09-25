@@ -38,4 +38,5 @@
     <color name="color_hint">#666666</color>
     <color name="color_text_duration">#999999</color>
     <color name="color_bg_seekbar">#BCBCBC</color>
+    <color name="color_pink">#FFB6C1</color>
 </resources>

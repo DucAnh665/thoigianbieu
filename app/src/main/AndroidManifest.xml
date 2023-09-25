@@ -20,6 +20,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.UpdateUser"
+            android:exported="false" />
+        <activity
             android:name=".view.ForgotPassWord"
             android:exported="false" />
         <activity

@@ -53,8 +53,6 @@ public class home extends AppCompatActivity {
     }
 
     public void Anhxa() {
-
-<<<<<<< HEAD
         binding.btnUpdateUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,11 +66,9 @@ public class home extends AppCompatActivity {
                 startActivity(new Intent(home.this, ThongtinActivity.class));
             }
         });
-=======
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(new Intent(this,SamOnlineService.class));
+            startForegroundService(new Intent(this, SamOnlineService.class));
         }
->>>>>>> e1b5ba039863719484b9624fc4585bec9990e82f
         binding.NutLich.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,10 +120,7 @@ public class home extends AppCompatActivity {
             try {
                 startActivityForResult(intent, 1);
             } catch (Exception e) {
-                Toast
-                        .makeText(home.this, " " + e.getMessage(),
-                                Toast.LENGTH_SHORT)
-                        .show();
+                Toast.makeText(home.this, " " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 200);

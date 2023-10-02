@@ -11,14 +11,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.lich.databinding.HomeCalendarBinding;
 import com.example.lich.service.SamOnlineService;
 import com.example.lich.shared.DataUserStorage;
 import com.example.lich.viewmodel.LoginViewModel;
@@ -87,7 +85,7 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dataUserStorage.clearData();
-                startActivity(new Intent(home.this, dangnhap.class));
+                startActivity(new Intent(home.this, Login.class));
                 finish();
             }
         });
@@ -169,12 +167,12 @@ public class home extends AppCompatActivity {
                 }
 
                 if (message.contains("đăng xuất")) {
-                    startActivity(new Intent(home.this, dangnhap.class));
+                    startActivity(new Intent(home.this, Login.class));
                     dataUserStorage.clearData();
                     finish();
                 }
                 if (message.contains("Đổi tài khoản")) {
-                    startActivity(new Intent(home.this, dangnhap.class));
+                    startActivity(new Intent(home.this, Login.class));
                     dataUserStorage.clearData();
                     finish();
                 }

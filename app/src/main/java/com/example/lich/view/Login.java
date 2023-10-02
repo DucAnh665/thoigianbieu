@@ -21,7 +21,7 @@ import com.example.lich.viewmodel.LoginViewModel;
 
 import java.util.List;
 
-public class dangnhap extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     private ActivityDangnhapBinding binding;
     private LoginViewModel loginViewModel;
     private DataUserStorage dataUserStorage;
@@ -41,10 +41,10 @@ public class dangnhap extends AppCompatActivity {
                 taikhoan = binding.username.getText().toString();
                 matkhau = binding.password.getText().toString();
                 if (taikhoan.equals("") && matkhau.equals("")) {
-                    Toast.makeText(dangnhap.this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_LONG).show();
                 } else {
                     //  dn.dangnhap(taikhoan,matkhau,url);
-                    loginViewModel.login(taikhoan, matkhau, dangnhap.this);
+                    loginViewModel.login(taikhoan, matkhau, Login.this);
                 }
             }
         });
@@ -71,7 +71,7 @@ public class dangnhap extends AppCompatActivity {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean) {
-                    startActivity(new Intent(dangnhap.this, home.class));
+                    startActivity(new Intent(Login.this, home.class));
                     finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "Thông tin không chính xác", Toast.LENGTH_LONG).show();
@@ -82,14 +82,14 @@ public class dangnhap extends AppCompatActivity {
         binding.datlich.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(dangnhap.this, MainDatlich.class));
+                startActivity(new Intent(Login.this, MainDatlich.class));
             }
         });
 
         binding.btnForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(dangnhap.this, ForgotPassWord.class));
+                startActivity(new Intent(Login.this, ForgotPassWord.class));
             }
         });
         getPermissionOverlay();

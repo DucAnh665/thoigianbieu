@@ -31,7 +31,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UpdateUserViewModel extends ViewModel {
-    private MutableLiveData<User> data = new MutableLiveData<>();
+    private MutableLiveData<User> data = new MutableLiveData<>();//livedata lắng nghe hanh động của view model
 
     private MutableLiveData<User.Data> dataUser = new MutableLiveData<>();
 
@@ -50,6 +50,8 @@ public class UpdateUserViewModel extends ViewModel {
         return dataUser;
     }
 
+
+    /// xét sữ liệu mặc đinh
     public void setDataUser(Context context) {
         dataUserStorage = new DataUserStorage(context);//khởi tạo bộ nhớ
         User.Data userdata = new User.Data();//khởi tạo data trong user
@@ -61,8 +63,8 @@ public class UpdateUserViewModel extends ViewModel {
 
     }
 
-    ;
 
+    /// call api update thông tin sinh viên
     public void updateUser(Context context, String address, String birthday) {
         Retrofit retrofit = new Retrofit.Builder().
                 baseUrl(WSConfig.Base_Log).

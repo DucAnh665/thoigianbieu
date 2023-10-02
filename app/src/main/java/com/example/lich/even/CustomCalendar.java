@@ -33,7 +33,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class CustomDatlich extends LinearLayout {
+public class CustomCalendar extends LinearLayout {
     ImageButton Next, Pre;
     TextView Current;
     GridView gridView;
@@ -60,12 +60,12 @@ public class CustomDatlich extends LinearLayout {
     DBOpen dbOpenHelper;
 
 
-    public CustomDatlich(Context context) {
+    public CustomCalendar(Context context) {
 
         super(context);
     }
 
-    public CustomDatlich(Context context, @Nullable AttributeSet attrs) {
+    public CustomCalendar(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         IntializeLayout();
@@ -136,7 +136,7 @@ public class CustomDatlich extends LinearLayout {
     }
 
 
-    public CustomDatlich(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public CustomCalendar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
     }

@@ -10,10 +10,10 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.lich.R;
-import com.example.lich.even.CustomDatlich;
+import com.example.lich.even.CustomCalendar;
 
 public class MainDatlich extends AppCompatActivity {
-    CustomDatlich customDatlich;
+    CustomCalendar customDatlich;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

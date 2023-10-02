@@ -42,7 +42,9 @@ public class ChangePassViewModel extends ViewModel {
         return isChangeSuccessful;
     }
 
+
     public void changePassWord(String codeStudent, String passWord, Context context) {
+        /// call api đổi mật khẩu
         dataUserStorage = new DataUserStorage(context);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(WSConfig.Base_Log)

@@ -51,7 +51,7 @@
             android:name=".view.home"
             android:exported="true" />
         <activity
-            android:name=".view.dangnhap"
+            android:name=".view.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -9,13 +9,13 @@ import android.widget.Toast;
 
 import com.example.lich.R;
 import com.example.lich.adapter.AdapterSchedule;
+import com.example.lich.databinding.ActivityDetailScheduleBinding;
 import com.example.lich.view.samonline.CustomCalendarSchedule;
-import com.example.lich.databinding.ActivityListviewtkbBinding;
 import com.example.lich.shared.DataStoreSubject;
 
 public class listviewtkb extends AppCompatActivity {
 
-    ActivityListviewtkbBinding binding;
+    ActivityDetailScheduleBinding binding;
 
     AdapterSchedule da;
     String ngay = " ", thang = " ", nam = " ";
@@ -25,7 +25,7 @@ public class listviewtkb extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityListviewtkbBinding.inflate(getLayoutInflater());
+        binding = ActivityDetailScheduleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         nhandulieu();
         setuptkb();
@@ -56,7 +56,7 @@ public class listviewtkb extends AppCompatActivity {
 
     public void setuptkb() {
 
-        da = new AdapterSchedule(R.layout.cttkb, listviewtkb.this, CustomCalendarSchedule.dulieu, ngay, thang, nam);
+        da = new AdapterSchedule(R.layout.item_detail_schedule, listviewtkb.this, CustomCalendarSchedule.dulieu, ngay, thang, nam);
         for (int i = 0; i < CustomCalendarSchedule.dulieu.size(); i++)
             if (CustomCalendarSchedule.dulieu.get(i).getNgay().equals(ngay) && CustomCalendarSchedule.dulieu.get(i).getThang().equals(thang) && CustomCalendarSchedule.dulieu.get(i).getNam().equals(nam)) {
 

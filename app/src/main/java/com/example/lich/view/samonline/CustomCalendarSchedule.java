@@ -61,7 +61,7 @@ public class CustomCalendarSchedule extends LinearLayout {
 
     private void khoitao() {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.lich, this);
+        View view = inflater.inflate(R.layout.activity_main_calendar_schedule, this);
         grid = view.findViewById(R.id.grid);
         ngay = view.findViewById(R.id.ngaythangnam);
         tien = view.findViewById(R.id.tien);

@@ -2,12 +2,7 @@ package com.example.lich.view.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.lich.R;
 import com.example.lich.view.samonline.CustomCalendarEvent;
@@ -18,7 +13,7 @@ public class MainDatlich extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_datlich);
+        setContentView(R.layout.activity_main_calendar_event);
         customDatlich = findViewById(R.id.maindatlich);
 
     }

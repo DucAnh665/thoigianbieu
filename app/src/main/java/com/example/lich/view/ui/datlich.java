@@ -11,6 +11,6 @@ public class datlich extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_datlich);
+        setContentView(R.layout.activity_calendar_event);
     }
 }

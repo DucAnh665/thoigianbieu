@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.lich.databinding.ActivityChangePasswordBinding;
-import com.example.lich.databinding.ActivityDangnhapBinding;
 import com.example.lich.viewmodel.ChangePassViewModel;
 
 public class ChangePassword extends AppCompatActivity {

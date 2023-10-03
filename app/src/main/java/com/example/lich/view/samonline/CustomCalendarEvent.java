@@ -96,7 +96,7 @@ public class CustomCalendarEvent extends LinearLayout {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setCancelable(true);
-                View addView = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_newevent_layout, null);
+                View addView = LayoutInflater.from(parent.getContext()).inflate(R.layout.dialog_add_event, null);
                 EditText Eventname = addView.findViewById(R.id.eventnames);
                 Eventtime = addView.findViewById(R.id.eventtimes);
                 Eventtime.setOnClickListener(new OnClickListener() {
@@ -188,7 +188,7 @@ public class CustomCalendarEvent extends LinearLayout {
 
     private void IntializeLayout() {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.activity_datlich, this);
+        View view = inflater.inflate(R.layout.activity_calendar_event, this);
         Next = view.findViewById(R.id.next);
         Pre = view.findViewById(R.id.pre);
         Current = view.findViewById(R.id.current);

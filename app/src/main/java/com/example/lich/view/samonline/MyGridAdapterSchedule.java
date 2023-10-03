@@ -30,7 +30,7 @@ public class MyGridAdapterSchedule extends ArrayAdapter {
     LayoutInflater inflater;
 
     public MyGridAdapterSchedule(@NonNull Context context, List<Date> dates, Calendar currentdate, List<Schedule> events) {
-        super(context, R.layout.ctlich);
+        super(context, R.layout.item_day);
         this.dates = dates;
         this.currentdate = currentdate;
         this.events = events;
@@ -54,7 +54,7 @@ public class MyGridAdapterSchedule extends ArrayAdapter {
         int curenMonth = currentdate.get(Calendar.MONTH) + 1;
         int currenyear = currentdate.get(Calendar.YEAR);
         if (view == null) {
-            view = inflater.inflate(R.layout.ctlich, parent, false);
+            view = inflater.inflate(R.layout.item_day, parent, false);
         }
         if (displaymonth == curenMonth && displayyear == currenyear) {
             view.setBackgroundColor(getContext().getResources().getColor(R.color.teal_200));

@@ -15,14 +15,14 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.lich.Model.UserResponse;
-import com.example.lich.databinding.ActivityDangnhapBinding;
+import com.example.lich.databinding.ActivityLoginBinding;
 import com.example.lich.shared.DataUserStorage;
 import com.example.lich.viewmodel.LoginViewModel;
 
 import java.util.List;
 
 public class Login extends AppCompatActivity {
-    private ActivityDangnhapBinding binding;
+    private ActivityLoginBinding binding;
     private LoginViewModel loginViewModel;
     private DataUserStorage dataUserStorage;
     private String taikhoan = "";
@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityDangnhapBinding.inflate(getLayoutInflater());
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         dataUserStorage = new DataUserStorage(this);

@@ -36,12 +36,12 @@ public class listvieweven extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.show_newenvent_layout);
+        setContentView(R.layout.activity_detail_event);
         CollectEventsPerMonth(monthFormat.format(calendar.getTime()), yearFormat.format(calendar.getTime()));
         lveven = findViewById(R.id.EventsRV);
         thongbao = findViewById(R.id.thongbaongay);
         nhandulieu();
-        da = new AdapterEvent(R.layout.show_events, listvieweven.this, dulieu, ngay, thang, nam);
+        da = new AdapterEvent(R.layout.item_detail_event, listvieweven.this, dulieu, ngay, thang, nam);
         lveven.setAdapter(da);
         setupevent();
     }
@@ -93,7 +93,7 @@ public class listvieweven extends AppCompatActivity {
     }
 
     public void setupevent() {
-        da = new AdapterEvent(R.layout.show_events, listvieweven.this, CollectEventByDate(ngay, thang), ngay, thang, nam);
+        da = new AdapterEvent(R.layout.item_detail_event, listvieweven.this, CollectEventByDate(ngay, thang), ngay, thang, nam);
         lveven.setAdapter(da);
     }
 

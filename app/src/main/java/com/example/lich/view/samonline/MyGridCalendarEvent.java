@@ -30,7 +30,7 @@ public class MyGridCalendarEvent extends ArrayAdapter {
 
 
     public MyGridCalendarEvent(@NonNull Context context, List<Date> dates, Calendar currentdate, List<Events> events) {
-        super(context, R.layout.ctevent);
+        super(context, R.layout.item_event);
         this.dates= dates;
         this.currentdate = currentdate;
         this.events = events;
@@ -57,7 +57,7 @@ public class MyGridCalendarEvent extends ArrayAdapter {
 
         if (convertView==null)
         {
-            convertView = inflater.inflate(R.layout.ctevent,parent,false);
+            convertView = inflater.inflate(R.layout.item_event,parent,false);
         }
         if (displaymonth==curenMonth && displayyear==currenyear)
         {

@@ -8,19 +8,19 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.lich.even.DBStruct;
+import com.example.lich.shared.DataEventStore;
 
 
 public class DBOpen extends SQLiteOpenHelper {
 
 
-    private static final String CREATE_EVENTS_TABLE = "create table "+ DBStruct.EVENT_TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + DBStruct.EVENT+" TEXT, " + DBStruct.TIME+" TEXT," + DBStruct.DATE+" TEXT, "+ DBStruct.MONTH+" TEXT, "+DBStruct.YEAR+" TEXT)";
+    private static final String CREATE_EVENTS_TABLE = "create table "+ DataEventStore.EVENT_TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + DataEventStore.EVENT+" TEXT, " + DataEventStore.TIME+" TEXT," + DataEventStore.DATE+" TEXT, "+ DataEventStore.MONTH+" TEXT, "+ DataEventStore.YEAR+" TEXT)";
 
-    private static final String DROP_EVENTS_TABLE = "DROP TABLE IF EXISTS "+DBStruct.EVENT_TABLE_NAME;
+    private static final String DROP_EVENTS_TABLE = "DROP TABLE IF EXISTS "+ DataEventStore.EVENT_TABLE_NAME;
 
     public DBOpen(@Nullable Context context) {
-        super(context, DBStruct.DB_NAME, null, DBStruct.DB_VERSION);
+        super(context, DataEventStore.DB_NAME, null, DataEventStore.DB_VERSION);
     }
 
     @Override
@@ -37,37 +37,37 @@ public class DBOpen extends SQLiteOpenHelper {
     public void SaveEvent(String event, String time, String date, String month, String year, SQLiteDatabase database)
     {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DBStruct.EVENT,event);
-        contentValues.put(DBStruct.TIME,time);
-        contentValues.put(DBStruct.DATE,date);
-        contentValues.put(DBStruct.MONTH,month);
-        contentValues.put(DBStruct.YEAR,year);
-        database.insert(DBStruct.EVENT_TABLE_NAME,null,contentValues);
+        contentValues.put(DataEventStore.EVENT,event);
+        contentValues.put(DataEventStore.TIME,time);
+        contentValues.put(DataEventStore.DATE,date);
+        contentValues.put(DataEventStore.MONTH,month);
+        contentValues.put(DataEventStore.YEAR,year);
+        database.insert(DataEventStore.EVENT_TABLE_NAME,null,contentValues);
 
     }
     public Cursor ReadEvents(String ngay,String thang, SQLiteDatabase database)
     {
-        String [] Projections = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
-        String Selection = DBStruct.DATE+"=? and "+ DBStruct.MONTH+"=?";
+        String [] Projections = {DataEventStore.EVENT, DataEventStore.TIME, DataEventStore.DATE, DataEventStore.MONTH, DataEventStore.YEAR};
+        String Selection = DataEventStore.DATE+"=? and "+ DataEventStore.MONTH+"=?";
 
         String [] SelectionsArgs = {ngay,thang};
 
-        return database.query(DBStruct.EVENT_TABLE_NAME,Projections,Selection,SelectionsArgs,null,null,null);
+        return database.query(DataEventStore.EVENT_TABLE_NAME,Projections,Selection,SelectionsArgs,null,null,null);
 
     }
     public Cursor ReadEventsperMonth(String month,String year, SQLiteDatabase database)
     {
-        String [] Projections = {DBStruct.EVENT,DBStruct.TIME,DBStruct.DATE,DBStruct.MONTH,DBStruct.YEAR};
-        String Selection = DBStruct.MONTH+"=? and "+DBStruct.YEAR+"=?";
+        String [] Projections = {DataEventStore.EVENT, DataEventStore.TIME, DataEventStore.DATE, DataEventStore.MONTH, DataEventStore.YEAR};
+        String Selection = DataEventStore.MONTH+"=? and "+ DataEventStore.YEAR+"=?";
         String [] SelectionsArgs = {month,year};
-        return database.query(DBStruct.EVENT_TABLE_NAME,Projections,Selection,SelectionsArgs,null,null,null);
+        return database.query(DataEventStore.EVENT_TABLE_NAME,Projections,Selection,SelectionsArgs,null,null,null);
 
     }
     public void deleteEvent(String event,String date,String time,SQLiteDatabase database)
     {
-        String selection = DBStruct.EVENT+"=? and "+DBStruct.DATE +"=? and "+DBStruct.TIME+"=?";
+        String selection = DataEventStore.EVENT+"=? and "+ DataEventStore.DATE +"=? and "+ DataEventStore.TIME+"=?";
         String[] selectionArg = {event,date,time};
-        database.delete(DBStruct.EVENT_TABLE_NAME,selection,selectionArg);
+        database.delete(DataEventStore.EVENT_TABLE_NAME,selection,selectionArg);
 
     }
 

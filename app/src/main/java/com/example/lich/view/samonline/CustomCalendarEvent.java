@@ -1,4 +1,4 @@
-package com.example.lich.even;
+package com.example.lich.view.samonline;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,7 +23,8 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.example.lich.Model.Events;
 import com.example.lich.R;
-import com.example.lich.view.listvieweven;
+import com.example.lich.shared.DataEventStore;
+import com.example.lich.view.ui.listvieweven;
 import com.example.lich.viewmodel.DBOpen;
 
 import java.text.SimpleDateFormat;
@@ -33,7 +34,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class CustomCalendar extends LinearLayout {
+public class CustomCalendarEvent extends LinearLayout {
     ImageButton Next, Pre;
     TextView Current;
     GridView gridView;
@@ -51,7 +52,7 @@ public class CustomCalendar extends LinearLayout {
     String curmont = " ";
     int dayno;
 
-    MyGridDatLich myGridDatLich;
+    MyGridCalendarEvent myGridDatLich;
 
     AlertDialog alertDialog;
     List<Date> dates = new ArrayList<>();
@@ -60,12 +61,12 @@ public class CustomCalendar extends LinearLayout {
     DBOpen dbOpenHelper;
 
 
-    public CustomCalendar(Context context) {
+    public CustomCalendarEvent(Context context) {
 
         super(context);
     }
 
-    public CustomCalendar(Context context, @Nullable AttributeSet attrs) {
+    public CustomCalendarEvent(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         IntializeLayout();
@@ -136,7 +137,7 @@ public class CustomCalendar extends LinearLayout {
     }
 
 
-    public CustomCalendar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public CustomCalendarEvent(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
     }
@@ -186,7 +187,7 @@ public class CustomCalendar extends LinearLayout {
 
         }
 
-        myGridDatLich = new MyGridDatLich(context, dates, calendar, eventsList);
+        myGridDatLich = new MyGridCalendarEvent(context, dates, calendar, eventsList);
         gridView.setAdapter(myGridDatLich);
 
     }
@@ -197,11 +198,11 @@ public class CustomCalendar extends LinearLayout {
         SQLiteDatabase database = dbOpenHelper.getReadableDatabase();
         Cursor cursor = dbOpenHelper.ReadEventsperMonth(Month, year, database);
         while (cursor.moveToNext()) {
-            String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
-            String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
-            String date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
-            String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
-            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
+            String event = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.EVENT));
+            String time = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.TIME));
+            String date = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.DATE));
+            String month = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.MONTH));
+            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.YEAR));
             Events events = new Events(event, time, date, month, Year);
             eventsList.add(events);
         }

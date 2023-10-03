@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 
 import com.example.lich.Model.Events;
 import com.example.lich.R;
-import com.example.lich.even.DBStruct;
-import com.example.lich.view.home;
+import com.example.lich.shared.DataEventStore;
+import com.example.lich.view.ui.home;
 import com.example.lich.viewmodel.DBOpen;
 import com.tatv.baseapp.service.BaseService;
 
@@ -63,11 +63,11 @@ public class SamOnlineService extends BaseService {
         SQLiteDatabase database = dbOpenHelper.getReadableDatabase();
         Cursor cursor = dbOpenHelper.ReadEventsperMonth(Month, year, database);
         while (cursor.moveToNext()) {
-            String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
-            String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
-            String date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
-            String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
-            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
+            String event = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.EVENT));
+            String time = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.TIME));
+            String date = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.DATE));
+            String month = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.MONTH));
+            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.YEAR));
             Events events = new Events(event, time, date, month, Year);
             dataEvent.add(events);
         }

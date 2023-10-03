@@ -1,4 +1,4 @@
-package com.example.lich.even;
+package com.example.lich.view.samonline;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -14,16 +14,13 @@ import androidx.annotation.Nullable;
 import com.example.lich.Model.Events;
 import com.example.lich.R;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Year;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class MyGridDatLich extends ArrayAdapter {
+public class MyGridCalendarEvent extends ArrayAdapter {
 
     List<Date> dates;
     Calendar currentdate;
@@ -32,7 +29,7 @@ public class MyGridDatLich extends ArrayAdapter {
 
 
 
-    public MyGridDatLich(@NonNull Context context, List<Date> dates, Calendar currentdate, List<Events> events) {
+    public MyGridCalendarEvent(@NonNull Context context, List<Date> dates, Calendar currentdate, List<Events> events) {
         super(context, R.layout.ctevent);
         this.dates= dates;
         this.currentdate = currentdate;

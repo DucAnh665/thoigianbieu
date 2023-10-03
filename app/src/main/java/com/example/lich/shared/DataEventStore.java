@@ -1,6 +1,6 @@
-package com.example.lich.even;
+package com.example.lich.shared;
 
-public class DBStruct {
+public class DataEventStore {
     public static final String DB_NAME = "EVENTS_DB.db";
     public static final int DB_VERSION = 1;
     public static final String EVENT_TABLE_NAME = "eventstable";

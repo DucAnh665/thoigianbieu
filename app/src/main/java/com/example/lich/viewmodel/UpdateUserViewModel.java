@@ -4,14 +4,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -21,7 +19,6 @@ import com.example.lich.Interface.BaseDataService;
 import com.example.lich.Model.User;
 import com.example.lich.R;
 import com.example.lich.shared.DataUserStorage;
-import com.example.lich.view.UpdateUser;
 import com.example.lich.view.dialog.DialogCustomer;
 
 import retrofit2.Call;

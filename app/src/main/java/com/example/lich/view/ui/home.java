@@ -1,4 +1,4 @@
-package com.example.lich.view;
+package com.example.lich.view.ui;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

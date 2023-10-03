@@ -1,29 +1,26 @@
-package com.example.lich.Thoikhoabieu;
+package com.example.lich.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.lich.Model.TKB;
+import com.example.lich.Model.Schedule;
 import com.example.lich.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class AdapterThoikhoabieu extends BaseAdapter {
+public class AdapterSchedule extends BaseAdapter {
 
     int Layout;
     Context context;
-    List<TKB> dulieu;
+    List<Schedule> dulieu;
     String ngay, thang, nam;
 
 
-    public AdapterThoikhoabieu(int layout, Context context, List<TKB> dulieu, String ngay, String thang, String nam) {
+    public AdapterSchedule(int layout, Context context, List<Schedule> dulieu, String ngay, String thang, String nam) {
         Layout = layout;
         this.context = context;
         this.dulieu = dulieu;
@@ -68,7 +65,7 @@ public class AdapterThoikhoabieu extends BaseAdapter {
         } else {
             hodel = (viewhodel) view.getTag();
         }
-        TKB list = dulieu.get(i);
+        Schedule list = dulieu.get(i);
         if (list.getNgay().equals(ngay) && list.getThang().equals(thang) && list.getNam().equals(nam)) {
             hodel.tenmon.setText(list.getTenmon());
             hodel.index.setText("Tiết: " + i + 1 + "");

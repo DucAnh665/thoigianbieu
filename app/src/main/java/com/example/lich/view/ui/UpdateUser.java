@@ -1,20 +1,16 @@
-package com.example.lich.view;
+package com.example.lich.view.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.lich.Model.User;
-import com.example.lich.R;
 import com.example.lich.databinding.ActivityUpdateUserBinding;
 import com.example.lich.databinding.HomeCalendarBinding;
-import com.example.lich.shared.DataUserStorage;
-import com.example.lich.viewmodel.LoginViewModel;
 import com.example.lich.viewmodel.UpdateUserViewModel;
 import com.squareup.picasso.Picasso;
 

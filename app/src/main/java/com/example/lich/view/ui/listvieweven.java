@@ -1,4 +1,4 @@
-package com.example.lich.view;
+package com.example.lich.view.ui;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lich.Model.Events;
 import com.example.lich.R;
-import com.example.lich.even.Adaptereven;
+import com.example.lich.adapter.AdapterEvent;
 import com.example.lich.viewmodel.DBOpen;
-import com.example.lich.even.DBStruct;
+import com.example.lich.shared.DataEventStore;
 
 
 import java.text.SimpleDateFormat;
@@ -24,7 +24,7 @@ public class listvieweven extends AppCompatActivity {
     ListView lveven;
     TextView thongbao;
     ArrayList<Events> dulieu = new ArrayList<>();
-    Adaptereven da;
+    AdapterEvent da;
     DBOpen db;
     Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
     SimpleDateFormat dateFormat = new SimpleDateFormat("MM yyyy", Locale.ENGLISH);
@@ -41,7 +41,7 @@ public class listvieweven extends AppCompatActivity {
         lveven = findViewById(R.id.EventsRV);
         thongbao = findViewById(R.id.thongbaongay);
         nhandulieu();
-        da = new Adaptereven(R.layout.show_events, listvieweven.this, dulieu, ngay, thang, nam);
+        da = new AdapterEvent(R.layout.show_events, listvieweven.this, dulieu, ngay, thang, nam);
         lveven.setAdapter(da);
         setupevent();
     }
@@ -52,11 +52,11 @@ public class listvieweven extends AppCompatActivity {
         SQLiteDatabase database = db.getReadableDatabase();
         Cursor cursor = db.ReadEventsperMonth(Month, year, database);
         while (cursor.moveToNext()) {
-            String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
-            String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
-            String date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
-            String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
-            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
+            String event = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.EVENT));
+            String time = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.TIME));
+            String date = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.DATE));
+            String month = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.MONTH));
+            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.YEAR));
             Events events = new Events(event, time, date, month, Year);
             dulieu.add(events);
         }
@@ -70,11 +70,11 @@ public class listvieweven extends AppCompatActivity {
         SQLiteDatabase database = db.getReadableDatabase();
         Cursor cursor = db.ReadEvents(date, thang, database);
         while (cursor.moveToNext()) {
-            String event = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.EVENT));
-            String time = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.TIME));
-            String Date = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.DATE));
-            String month = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.MONTH));
-            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DBStruct.YEAR));
+            String event = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.EVENT));
+            String time = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.TIME));
+            String Date = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.DATE));
+            String month = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.MONTH));
+            String Year = cursor.getString(cursor.getColumnIndexOrThrow(DataEventStore.YEAR));
             Events events = new Events(event, time, Date, month, Year);
             arrayList.add(events);
         }
@@ -93,7 +93,7 @@ public class listvieweven extends AppCompatActivity {
     }
 
     public void setupevent() {
-        da = new Adaptereven(R.layout.show_events, listvieweven.this, CollectEventByDate(ngay, thang), ngay, thang, nam);
+        da = new AdapterEvent(R.layout.show_events, listvieweven.this, CollectEventByDate(ngay, thang), ngay, thang, nam);
         lveven.setAdapter(da);
     }
 

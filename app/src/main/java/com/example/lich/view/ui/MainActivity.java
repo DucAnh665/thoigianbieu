@@ -1,4 +1,4 @@
-package com.example.lich.view;
+package com.example.lich.view.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -9,21 +9,17 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.lich.Model.SubjectReponse;
-import com.example.lich.Model.TKB;
-import com.example.lich.Thoikhoabieu.CustomCalendar;
+import com.example.lich.Model.Schedule;
+import com.example.lich.view.samonline.CustomCalendarSchedule;
 import com.example.lich.R;
-import com.example.lich.databinding.ActivityForgotPassWordBinding;
 import com.example.lich.databinding.ActivityMainBinding;
 import com.example.lich.shared.DataStoreSubject;
 import com.example.lich.shared.DataUserStorage;
 import com.example.lich.viewmodel.SubjectViewModel;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
-    CustomCalendar ct;
+    CustomCalendarSchedule ct;
     private ActivityMainBinding binding;
 
     private SubjectViewModel subjectViewModel;
@@ -36,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        ct = (CustomCalendar) findViewById(R.id.custom);
+        ct = (CustomCalendarSchedule) findViewById(R.id.custom);
         initData();
     }
 
@@ -70,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                         String day = dateParts[0];
                         String month = dateParts[1];
                         String year = dateParts[2];
-                        dataStoreSubject.addData(new TKB(subjectReponse.getData().get(i).getNumber(), subjectReponse.getData().get(i).getNameSubject(), day, month, year, dataUserStorage.loadData().nameFaculty, subjectReponse.getData().get(i).getNameTeacher()));
+                        dataStoreSubject.addData(new Schedule(subjectReponse.getData().get(i).getNumber(), subjectReponse.getData().get(i).getNameSubject(), day, month, year, dataUserStorage.loadData().nameFaculty, subjectReponse.getData().get(i).getNameTeacher()));
                         Log.e("tag", dataStoreSubject.loadData().size() + "");
                     } else {
                         System.out.println("Định dạng ngày không hợp lệ.");

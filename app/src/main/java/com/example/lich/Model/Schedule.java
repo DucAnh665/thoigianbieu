@@ -1,11 +1,11 @@
 package com.example.lich.Model;
 
-public class TKB {
+public class Schedule {
     int id;
     String tenmon,ngay,thang,nam,khoa,giangvien;
 
 
-    public TKB(int id, String tenmon, String ngay, String thang, String nam, String khoa, String giangvien) {
+    public Schedule(int id, String tenmon, String ngay, String thang, String nam, String khoa, String giangvien) {
         this.id = id;
         this.tenmon = tenmon;
         this.ngay = ngay;

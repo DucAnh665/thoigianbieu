@@ -1,4 +1,4 @@
-package com.example.lich.even;
+package com.example.lich.adapter;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,15 +15,15 @@ import com.example.lich.viewmodel.DBOpen;
 
 import java.util.ArrayList;
 
-public class Adaptereven extends BaseAdapter {
+public class AdapterEvent extends BaseAdapter {
 
     int Layout;
     Context context;
     ArrayList<Events> dulieu;
-    DBOpen dbOpen ;
-    String ngay = " ", thang = " ",nam = " ";
+    DBOpen dbOpen;
+    String ngay = " ", thang = " ", nam = " ";
 
-    public Adaptereven(int layout, Context context, ArrayList<Events> dulieu, String ngay, String thang, String nam) {
+    public AdapterEvent(int layout, Context context, ArrayList<Events> dulieu, String ngay, String thang, String nam) {
         Layout = layout;
         this.context = context;
         this.dulieu = dulieu;
@@ -47,58 +47,48 @@ public class Adaptereven extends BaseAdapter {
         return 0;
     }
 
-    public class viewhodel
-    {
-        TextView even,time,date;
+    public class viewhodel {
+        TextView even, time, date;
         Button btxoa;
     }
+
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         viewhodel hodel;
 
 
-        if (view == null)
-        {
+        if (view == null) {
             hodel = new viewhodel();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(Layout,null);
+            view = inflater.inflate(Layout, null);
             hodel.even = view.findViewById(R.id.eventname);
-            hodel.time =  view.findViewById(R.id.eventtime);
+            hodel.time = view.findViewById(R.id.eventtime);
             hodel.date = view.findViewById(R.id.eventdate);
             hodel.btxoa = view.findViewById(R.id.delete);
             view.setTag(hodel);
 
-        }
-        else
-        {
+        } else {
             hodel = (viewhodel) view.getTag();
         }
         Events list = dulieu.get(i);
-
-
-
-            hodel.even.setText(list.getEVENT());
-            hodel.date.setText(list.getDATE()+"/"+list.getMONTH()+"/"+list.getYEAR());
-            hodel.time.setText(list.getTIME());
-
-
-
-
+        hodel.even.setText(list.getEVENT());
+        hodel.date.setText(list.getDATE() + "/" + list.getMONTH() + "/" + list.getYEAR());
+        hodel.time.setText(list.getTIME());
         hodel.btxoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deleteCalenderEvent(list.getEVENT(),list.getDATE(),list.getTIME());
+                deleteCalenderEvent(list.getEVENT(), list.getDATE(), list.getTIME());
                 dulieu.remove(i);
                 notifyDataSetChanged();
             }
         });
         return view;
     }
-    private  void  deleteCalenderEvent(String event,String date, String time)
-    {
+
+    private void deleteCalenderEvent(String event, String date, String time) {
         dbOpen = new DBOpen(context);
         SQLiteDatabase database = dbOpen.getWritableDatabase();
-        dbOpen.deleteEvent(event,date,time,database);
+        dbOpen.deleteEvent(event, date, time, database);
         dbOpen.close();
     }
 

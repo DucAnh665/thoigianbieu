@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="@dimen/size20dp"
-    tools:context=".view.ForgotPassWord">
+    tools:context=".view.ui.ForgotPassWord">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

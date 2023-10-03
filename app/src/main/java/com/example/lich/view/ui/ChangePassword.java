@@ -1,4 +1,4 @@
-package com.example.lich.view;
+package com.example.lich.view.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -8,11 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.lich.R;
 import com.example.lich.databinding.ActivityChangePasswordBinding;
 import com.example.lich.databinding.ActivityDangnhapBinding;
 import com.example.lich.viewmodel.ChangePassViewModel;
-import com.example.lich.viewmodel.LoginViewModel;
 
 public class ChangePassword extends AppCompatActivity {
 

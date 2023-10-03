@@ -1,4 +1,4 @@
-package com.example.lich.Thoikhoabieu;
+package com.example.lich.view.samonline;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,10 +14,10 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.example.lich.Model.TKB;
+import com.example.lich.Model.Schedule;
 import com.example.lich.R;
 import com.example.lich.shared.DataStoreSubject;
-import com.example.lich.view.listviewtkb;
+import com.example.lich.view.ui.listviewtkb;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class CustomCalendar extends LinearLayout {
+public class CustomCalendarSchedule extends LinearLayout {
     final static String TAG = "CustomCalendar";
     GridView grid;
     public static final int MAX_CALENDAR_DAYS = 42;
@@ -36,12 +36,12 @@ public class CustomCalendar extends LinearLayout {
     SimpleDateFormat dateFormat = new SimpleDateFormat("MM yyyy", Locale.ENGLISH);
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM", Locale.ENGLISH);
     SimpleDateFormat YearFormat = new SimpleDateFormat("yyyy", Locale.ENGLISH);
-    MyGridAdapter da = null;
+    MyGridAdapterSchedule da = null;
     String curdate = " ", curyear = " ";
     String curmont = " ";
 
     String url = "https://csdlapp.000webhostapp.com/getteam.php";
-    static public List<TKB> dulieu = new ArrayList<>();
+    static public List<Schedule> dulieu = new ArrayList<>();
 
     public DataStoreSubject dataStoreSubject;
     ArrayList<Date> dates = new ArrayList<>();
@@ -51,11 +51,11 @@ public class CustomCalendar extends LinearLayout {
     Calendar daycale = Calendar.getInstance();
     int dayno;
 
-    public CustomCalendar(Context context) {
+    public CustomCalendarSchedule(Context context) {
         super(context);
     }
 
-    public CustomCalendar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public CustomCalendarSchedule(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -135,11 +135,11 @@ public class CustomCalendar extends LinearLayout {
 
         }
         dulieu = dataStoreSubject.loadData();
-        da = new MyGridAdapter(context, dates, calendar, dataStoreSubject.loadData());
+        da = new MyGridAdapterSchedule(context, dates, calendar, dataStoreSubject.loadData());
         grid.setAdapter(da);
     }
 
-    public CustomCalendar(Context context, @Nullable AttributeSet attrs) {
+    public CustomCalendarSchedule(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         dataStoreSubject = new DataStoreSubject(context);

@@ -1,4 +1,4 @@
-package com.example.lich.view;
+package com.example.lich.view.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,10 +10,10 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.lich.R;
-import com.example.lich.even.CustomCalendar;
+import com.example.lich.view.samonline.CustomCalendarEvent;
 
 public class MainDatlich extends AppCompatActivity {
-    CustomCalendar customDatlich;
+    CustomCalendarEvent customDatlich;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

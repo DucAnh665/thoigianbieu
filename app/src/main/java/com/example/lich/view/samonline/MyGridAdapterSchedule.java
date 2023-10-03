@@ -1,8 +1,7 @@
-package com.example.lich.Thoikhoabieu;
+package com.example.lich.view.samonline;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.lich.Model.TKB;
+import com.example.lich.Model.Schedule;
 import com.example.lich.R;
 
 import java.text.SimpleDateFormat;
@@ -21,15 +20,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class MyGridAdapter extends ArrayAdapter {
+public class MyGridAdapterSchedule extends ArrayAdapter {
 
     final static String TAG = "MyGridAdapter";
     List<Date> dates;
     Calendar currentdate;
-    List<TKB> events;
+    List<Schedule> events;
     LayoutInflater inflater;
 
-    public MyGridAdapter(@NonNull Context context, List<Date> dates, Calendar currentdate, List<TKB> events) {
+    public MyGridAdapterSchedule(@NonNull Context context, List<Date> dates, Calendar currentdate, List<Schedule> events) {
         super(context, R.layout.ctlich);
         this.dates = dates;
         this.currentdate = currentdate;

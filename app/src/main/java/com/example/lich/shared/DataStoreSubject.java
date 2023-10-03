@@ -3,7 +3,7 @@ package com.example.lich.shared;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.lich.Model.TKB;
+import com.example.lich.Model.Schedule;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -27,15 +27,15 @@ public class DataStoreSubject {
         editor = sharedPreferences.edit();
     }
 
-    public void saveData(List<TKB> dataList) {
+    public void saveData(List<Schedule> dataList) {
         Gson gson = new Gson();
         String json = gson.toJson(dataList);
         editor.putString(KEY_DATA_APP, json);
         editor.apply();
     }
 
-    public void addData(TKB newData) {
-        List<TKB> dataList = loadData();
+    public void addData(Schedule newData) {
+        List<Schedule> dataList = loadData();
         if (dataList == null) {
             dataList = new ArrayList<>();
         }
@@ -43,10 +43,10 @@ public class DataStoreSubject {
         saveData(dataList);
     }
 
-    public List<TKB> loadData() {
+    public List<Schedule> loadData() {
         Gson gson = new Gson();
         String json = sharedPreferences.getString(KEY_DATA_APP, null);
-        Type type = new TypeToken<List<TKB>>() {
+        Type type = new TypeToken<List<Schedule>>() {
         }.getType();
         return gson.fromJson(json, type);
     }

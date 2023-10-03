@@ -21,37 +21,37 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.UpdateUser"
+            android:name=".view.ui.UpdateUser"
             android:exported="false" />
         <activity
-            android:name=".view.ForgotPassWord"
+            android:name=".view.ui.ForgotPassWord"
             android:exported="false" />
         <activity
-            android:name=".view.ChangePassword"
+            android:name=".view.ui.ChangePassword"
             android:exported="false" />
         <activity
             android:name=".view.ThongtinActivity"
             android:exported="true" />
         <activity
-            android:name=".view.listvieweven"
+            android:name=".view.ui.listvieweven"
             android:exported="false" />
         <activity
-            android:name=".view.listviewtkb"
+            android:name=".view.ui.listviewtkb"
             android:exported="false" />
         <activity
-            android:name=".view.MainDatlich"
+            android:name=".view.ui.MainDatlich"
             android:exported="false" />
         <activity
-            android:name=".view.datlich"
+            android:name=".view.ui.datlich"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.ui.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".view.home"
+            android:name=".view.ui.home"
             android:exported="true" />
         <activity
-            android:name=".view.Login"
+            android:name=".view.ui.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 import com.example.lich.Model.SubjectReponse;
 import com.example.lich.Model.Schedule;
+import com.example.lich.databinding.ActivityMainBinding;
 import com.example.lich.view.samonline.CustomCalendarSchedule;
 import com.example.lich.R;
-import com.example.lich.databinding.ActivityMainBinding;
 import com.example.lich.shared.DataStoreSubject;
 import com.example.lich.shared.DataUserStorage;
 import com.example.lich.viewmodel.SubjectViewModel;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean) {
-                    Toast.makeText(MainActivity.this, "Hiển thị dữ liệu thành công", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -58,8 +58,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(SubjectReponse subjectReponse) {
                 for (int i = 0; i < subjectReponse.getData().size(); i++) {
-                    Log.e("MainActivity", subjectReponse.getData().get(i).getNameSubject());
-                    Log.e("MainActivity", subjectReponse.getData().get(i).getDateTime());
                     String[] dateParts = extractDate(subjectReponse.getData().get(i).getDateTime());
 
                     if (dateParts != null) {

@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -69,60 +70,25 @@ public class UpdateUserViewModel extends ViewModel {
                 build();
         BaseDataService service = retrofit.create(BaseDataService.class);
         Call<User> callUpdateUser = service.updateUser(dataUserStorage.loadData().getCodeStudent(), address, birthday);
-        Dialog dialog = new Dialog(context);
-        showDialog(dialog);
         callUpdateUser.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful()) {
                     User user = response.body();
                     getData().setValue(user);
-                    getDataUser().setValue(user.getData().get(0));
-                    dialog.dismiss();
-                } else {
-                    DialogCustomer.showDialog(context, R.layout.dialog_send_fail, new DialogCustomer.OnButtonClickListener() {
-                        @Override
-                        public void findId(Dialog dialog) {
-                            btnSend = dialog.findViewById(R.id.btn_send_again);
-                            txtMessage = dialog.findViewById(R.id.txt_dialog_message);
-                        }
-
-                        @Override
-                        public void onListener(Dialog dialog) {
-                            btnSend.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
-                                }
-                            });
-                        }
-                    });
-                    dialog.dismiss();
+                    DataUserStorage storeUser = new DataUserStorage(context);
+                    storeUser.saveData(user.getData().get(0).getUserName(), user.getData().get(0).getCodeStudent(), user.getData().get(0).getNameClass(),
+                            user.getData().get(0).getNameFaculty(),
+                            user.getData().get(0).getImage(),
+                            user.getData().get(0).getPassWord(),
+                            user.getData().get(0).getAddress(),
+                            user.getData().get(0).getBirthday());
+                    Log.e("Update User", user.getData().get(0).getUserName());
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                DialogCustomer.showDialog(context, R.layout.dialog_send_fail, new DialogCustomer.OnButtonClickListener() {
-                    @Override
-                    public void findId(Dialog dialog) {
-                        btnSend = dialog.findViewById(R.id.btn_send_again);
-                        txtMessage = dialog.findViewById(R.id.txt_dialog_message);
-                    }
-
-                    @Override
-                    public void onListener(Dialog dialog) {
-
-                        txtMessage.setText("Kiểm tra lại mạng");
-                        btnSend.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                dialog.dismiss();
-                            }
-                        });
-                    }
-                });
-                dialog.dismiss();
             }
         });
     }

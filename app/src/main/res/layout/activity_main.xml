@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.MainActivity"
     android:orientation="vertical"
-    android:background="#037C7C">
+    android:background="@drawable/background">
 
 
     <com.example.lich.view.samonline.CustomCalendarSchedule

@@ -26,24 +26,12 @@ public class MainDatlich extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        IntentFilter filter = new IntentFilter("calendar");
-        registerReceiver(receiver, filter);
+        customDatlich.SetUpCalender();
     }
 
-    private BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String day = intent.getStringExtra("day");
-            String month = intent.getStringExtra("month");
-            String year = intent.getStringExtra("year");
-            Log.e("MainDatLich", day + "/" + month + "/" + year);
-        }
-
-    };
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(receiver);
     }
 }

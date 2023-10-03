@@ -1,5 +1,6 @@
 package com.example.lich.view.samonline;
 
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,6 +17,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -43,7 +45,7 @@ public class CustomCalendarEvent extends LinearLayout {
     Context context;
 
 
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd", Locale.ENGLISH);
+    SimpleDateFormat dateFormat = new SimpleDateFormat("d", Locale.ENGLISH);
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM", Locale.ENGLISH);
     SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.ENGLISH);
     SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
@@ -59,6 +61,8 @@ public class CustomCalendarEvent extends LinearLayout {
     public static ArrayList<Events> eventsList = new ArrayList<>();
     Calendar daycale = Calendar.getInstance();
     DBOpen dbOpenHelper;
+
+    private EditText Eventtime;
 
 
     public CustomCalendarEvent(Context context) {
@@ -90,17 +94,21 @@ public class CustomCalendarEvent extends LinearLayout {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
 
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setCancelable(true);
                 View addView = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_newevent_layout, null);
                 EditText Eventname = addView.findViewById(R.id.eventnames);
-                EditText Eventtime = addView.findViewById(R.id.eventtimes);
+                Eventtime = addView.findViewById(R.id.eventtimes);
+                Eventtime.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        showTimePickerDialog();
+                    }
+                });
                 Button Buttonthem = addView.findViewById(R.id.addsukien);
                 String date = dateFormat.format(dates.get(i));
                 String month = monthFormat.format(dates.get(i));
                 String year = yearFormat.format(dates.get(i));
-
                 Buttonthem.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -150,12 +158,32 @@ public class CustomCalendarEvent extends LinearLayout {
 
     }
 
+    private void showTimePickerDialog() {
+        // Lấy thời gian hiện tại
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+
+        // Tạo đối tượng TimePickerDialog
+        TimePickerDialog timePickerDialog = new TimePickerDialog(context,
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        String selectedTime = String.format(Locale.getDefault(), "%02d:%02d", i, i1);
+                        Eventtime.setText(selectedTime);
+                    }
+                }, hour, minute, true);
+
+        // Hiển thị hộp thoại
+        timePickerDialog.show();
+    }
+
     private void SaveEvent(String event, String time, String date, String month, String year) {
         dbOpenHelper = new DBOpen(context);
         SQLiteDatabase database = dbOpenHelper.getWritableDatabase();
         dbOpenHelper.SaveEvent(event, time, date, month, year, database);
         dbOpenHelper.close();
-        Toast.makeText(context, "Events Saved", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Đặt lịch thành công", Toast.LENGTH_SHORT).show();
     }
 
     private void IntializeLayout() {
@@ -167,17 +195,16 @@ public class CustomCalendarEvent extends LinearLayout {
         gridView = view.findViewById(R.id.grid);
     }
 
-    private void SetUpCalender() {
+    public void SetUpCalender() {
         curdate = dateFormat.format(calendar.getTime());
         curyear = yearFormat.format(calendar.getTime());
         curmont = monthFormat.format(calendar.getTime());
         Current.setText(curmont + "/" + curyear);
-
         dates.clear();
         Calendar monthca = (Calendar) calendar.clone();
         monthca.set(Calendar.DAY_OF_MONTH, 1);
         int firstdayofmonth = monthca.get(Calendar.DAY_OF_WEEK) - 1;
-        monthca.add(Calendar.DAY_OF_MONTH, -firstdayofmonth);
+        monthca.add(Calendar.DAY_OF_MONTH, firstdayofmonth);
         Log.e("Dat lich", monthFormat.format(calendar.getTime()));
         CollectEventsPerMonth(monthFormat.format(calendar.getTime()), yearFormat.format(calendar.getTime()));
 

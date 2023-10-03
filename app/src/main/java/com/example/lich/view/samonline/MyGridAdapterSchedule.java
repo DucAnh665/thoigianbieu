@@ -1,5 +1,6 @@
 package com.example.lich.view.samonline;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -40,6 +41,7 @@ public class MyGridAdapterSchedule extends ArrayAdapter {
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM", Locale.ENGLISH);
     SimpleDateFormat YearFormat = new SimpleDateFormat("yyyy", Locale.ENGLISH);
 
+    @SuppressLint("ResourceAsColor")
     @NonNull
     @Override
     public View getView(int i, @Nullable View view, @NonNull ViewGroup parent) {
@@ -57,7 +59,7 @@ public class MyGridAdapterSchedule extends ArrayAdapter {
         if (displaymonth == curenMonth && displayyear == currenyear) {
             view.setBackgroundColor(getContext().getResources().getColor(R.color.teal_200));
         } else {
-            view.setBackgroundColor(Color.parseColor("#cccccc"));
+            view.setBackgroundColor(Color.parseColor("#68888888"));
         }
         TextView day = view.findViewById(R.id.day);
         TextView number = view.findViewById(R.id.number);
@@ -71,9 +73,10 @@ public class MyGridAdapterSchedule extends ArrayAdapter {
                 if (events.get(i).getNgay().equals(dayone) && events.get(i).getThang().equals(curmonth) && events.get(i).getNam().equals(curyear)) {
                     cout++;
                     String sukien = String.valueOf(cout);
-                    number.setText(sukien + "Môn");
+                    number.setText(sukien + " Môn");
+                    number.setTextColor(R.color.white);
                     number.setVisibility(View.VISIBLE);
-                    view.setBackgroundColor(Color.parseColor("#f11cfe"));
+                    view.setBackgroundColor(Color.parseColor("#FFB6C1"));
                 }
             }
         }

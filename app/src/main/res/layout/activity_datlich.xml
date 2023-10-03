@@ -54,6 +54,17 @@
             android:layout_marginTop="4dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:text="CN"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="T2"
             android:textColor="@color/black"
             android:textSize="20dp"
@@ -110,17 +121,6 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="T7"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="italic" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="CN"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="italic" />

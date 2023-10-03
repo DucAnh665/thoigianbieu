@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.lich.databinding.HomeCalendarBinding;
 import com.example.lich.service.SamOnlineService;
 import com.example.lich.shared.DataUserStorage;
 import com.example.lich.viewmodel.LoginViewModel;
@@ -61,7 +62,7 @@ public class home extends AppCompatActivity {
         binding.Thongtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(home.this, ThongtinActivity.class));
+
             }
         });
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -158,11 +159,6 @@ public class home extends AppCompatActivity {
                         System.out.println("Số: " + number);
                     }
                     Log.e("Test", dataTime.size() + "");
-                    Intent intent = new Intent("calendar");
-                    intent.putExtra("day", dataTime.get(0));
-                    intent.putExtra("month", dataTime.get(1));
-                    intent.putExtra("year", dataTime.get(2));
-                    LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
                     startActivity(new Intent(home.this, MainDatlich.class));
                 }
 

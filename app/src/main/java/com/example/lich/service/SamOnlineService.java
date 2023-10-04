@@ -14,6 +14,8 @@ import com.example.lich.R;
 import com.example.lich.shared.DataEventStore;
 import com.example.lich.view.ui.home;
 import com.example.lich.viewmodel.DBOpen;
+import com.tatv.baseapp.service.BaseService;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,8 +24,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-
-import vn.tatv.baseapp.service.BaseService;
 
 public class SamOnlineService extends BaseService {
 
@@ -98,7 +98,7 @@ public class SamOnlineService extends BaseService {
 
             long diffMillis = endTime.getTime() - startTime.getTime();
             long diffHours = TimeUnit.MILLISECONDS.toHours(diffMillis);
-            Log.e("tEST",diffHours+"");
+            Log.e("tEST", diffHours + "");
             return diffHours;
         } catch (ParseException e) {
             e.printStackTrace();

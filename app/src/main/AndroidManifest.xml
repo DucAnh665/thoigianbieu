@@ -20,6 +20,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <receiver
+            android:name=".view.widget.WidgetCalendar"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_calendar_info" />
+        </receiver>
+
         <activity
             android:name=".view.ui.UpdateUser"
             android:exported="false" />
@@ -29,9 +41,6 @@
         <activity
             android:name=".view.ui.ChangePassword"
             android:exported="false" />
-        <activity
-            android:name=".view.ThongtinActivity"
-            android:exported="true" />
         <activity
             android:name=".view.ui.listvieweven"
             android:exported="false" />
@@ -59,7 +68,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <service android:name=".service.SamOnlineService" />
     </application>
 

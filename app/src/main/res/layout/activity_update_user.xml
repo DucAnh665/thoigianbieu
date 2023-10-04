@@ -18,7 +18,7 @@
         android:padding="20dp">
 
 
-        <com.tatv.baseapp.view.tview.rounded.RoundedImageView
+        <ImageView
             android:id="@+id/img_user"
             android:layout_width="@dimen/size200dp"
             android:layout_height="@dimen/size200dp"

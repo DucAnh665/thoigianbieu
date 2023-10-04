@@ -5,8 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 
 import androidx.annotation.Nullable;
-
-import com.tatv.baseapp.service.BaseService;
+import vn.tatv.baseapp.service.BaseService;
 
 public class TimeService extends BaseService {
     @Override

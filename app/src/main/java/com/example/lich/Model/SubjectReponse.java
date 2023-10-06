@@ -72,16 +72,42 @@ public class SubjectReponse {
         @SerializedName("nameTeacher")
         @Expose
         private String nameTeacher;
-
         @SerializedName("number")
         @Expose
         private int number;
+        @SerializedName("startDay")
+        @Expose
+        private String startDate;
 
-        public Subject(String nameSubject, String dateTime, String nameTeacher, int number) {
+
+        @SerializedName("endDay")
+        @Expose
+        private String endDate;
+
+        public Subject(String nameSubject, String dateTime, String nameTeacher, int number, String startDate, String endDate) {
             this.nameSubject = nameSubject;
             this.dateTime = dateTime;
             this.nameTeacher = nameTeacher;
             this.number = number;
+            this.startDate = startDate;
+            this.endDate = endDate;
+        }
+
+
+        public String getStartDate() {
+            return startDate;
+        }
+
+        public void setStartDate(String startDate) {
+            this.startDate = startDate;
+        }
+
+        public String getEndDate() {
+            return endDate;
+        }
+
+        public void setEndDate(String endDate) {
+            this.endDate = endDate;
         }
 
         public String getNameSubject() {

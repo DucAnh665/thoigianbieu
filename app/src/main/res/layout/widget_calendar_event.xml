@@ -72,7 +72,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Lịch học sắp tới"
+                android:text="Sự kiện sắp tới"
                 android:textColor="#ffffff"
                 android:textSize="14sp" />
 

@@ -48,7 +48,7 @@ public class ForgotPassWord extends AppCompatActivity implements View.OnClickLis
                             String passWordAgain = binding.txtPasswordAgain.getText().toString();
                             if (!passWordAgain.equals("") && !passWord.equals("")) {
                                 if (passWordAgain.equals(passWord)) {
-                                    changePassViewModel.changePassWord(codeStudent, passWord, ForgotPassWord.this);
+                                    changePassViewModel.changePassWord(passWord, ForgotPassWord.this);
                                 } else {
                                     Toast.makeText(ForgotPassWord.this, "Mật khẩu không trùng", Toast.LENGTH_LONG).show();
                                 }

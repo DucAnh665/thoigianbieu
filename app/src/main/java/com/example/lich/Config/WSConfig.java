@@ -1,7 +1,7 @@
 package com.example.lich.Config;
 
 public class WSConfig {
-    public static final String Base_Log = "https://f06f-2401-d800-df50-63de-a02d-dd19-921c-3019.ngrok-free.app/samonline/";
+    public static final String Base_Log = "https://fb05-2401-d800-fd5e-9b65-384a-dc70-a2ea-5392.ngrok-free.app/samonline/";
 
 
     public class Api {

@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Lịch cá nhân "
+                android:text="Thời khóa biểu "
                 android:textColor="@color/black"
                 android:textSize="13dp"
                 android:textStyle="bold"></TextView>

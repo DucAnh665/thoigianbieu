@@ -48,12 +48,11 @@ public class ChangePassword extends AppCompatActivity {
         binding.btnChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                taikhoan = binding.username.getText().toString();
                 matkhau = binding.password.getText().toString();
                 nhaplaimatkhau = binding.passwordAgain.getText().toString();
-                if (!taikhoan.equals("") && !matkhau.equals("") && !nhaplaimatkhau.equals("")) {
+                if (!matkhau.equals("") && !nhaplaimatkhau.equals("")) {
                     if (matkhau.equals(nhaplaimatkhau)) {
-                        changePassViewModel.changePassWord(taikhoan, matkhau, ChangePassword.this);
+                        changePassViewModel.changePassWord(matkhau, ChangePassword.this);
                     } else {
                         Toast.makeText(ChangePassword.this, "Mật khẩu nhập không khớp", Toast.LENGTH_LONG).show();
                     }

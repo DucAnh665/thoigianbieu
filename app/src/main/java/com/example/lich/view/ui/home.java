@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.lich.databinding.HomeCalendarBinding;
 import com.example.lich.service.SamOnlineService;
 import com.example.lich.shared.DataUserStorage;
+import com.example.lich.view.widget.WidgetManager;
 import com.example.lich.viewmodel.LoginViewModel;
 import com.squareup.picasso.Picasso;
 
@@ -45,10 +46,13 @@ public class home extends AppCompatActivity {
         binding = HomeCalendarBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         dataUserStorage = new DataUserStorage(this);
-
         Anhxa();
         nhandulieu();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     public void Anhxa() {
@@ -160,6 +164,14 @@ public class home extends AppCompatActivity {
                     }
                     Log.e("Test", dataTime.size() + "");
                     startActivity(new Intent(home.this, MainDatlich.class));
+                }
+
+                if (message.contains("cá nhân") || message.contains("Thông tin cá nhân")) {
+                    startActivity(new Intent(home.this, UpdateUser.class));
+                }
+
+                if (message.contains("mật khẩu")) {
+                    startActivity(new Intent(home.this, ChangePassword.class));
                 }
 
                 if (message.contains("đăng xuất")) {

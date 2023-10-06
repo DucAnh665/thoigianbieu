@@ -43,7 +43,7 @@ public class ChangePassViewModel extends ViewModel {
     }
 
 
-    public void changePassWord(String codeStudent, String passWord, Context context) {
+    public void changePassWord(String passWord, Context context) {
         /// call api đổi mật khẩu
         //dsjdsjds
         dataUserStorage = new DataUserStorage(context);
@@ -52,7 +52,7 @@ public class ChangePassViewModel extends ViewModel {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         BaseDataService service = retrofit.create(BaseDataService.class);
-        Call<StatusResponse> callApi = service.changePassWord(codeStudent, passWord);
+        Call<StatusResponse> callApi = service.changePassWord(dataUserStorage.loadData().getCodeStudent(), passWord);
         Dialog dialog = new Dialog(context);
         showDialog(dialog);
         callApi.enqueue(new Callback<StatusResponse>() {

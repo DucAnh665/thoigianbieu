@@ -64,8 +64,17 @@ public class MainActivity extends AppCompatActivity {
                         String day = dateParts[0];
                         String month = dateParts[1];
                         String year = dateParts[2];
-                        dataStoreSubject.addData(new Schedule(subjectReponse.getData().get(i).getNumber(), subjectReponse.getData().get(i).getNameSubject(), day, month, year, dataUserStorage.loadData().nameFaculty, subjectReponse.getData().get(i).getNameTeacher()));
-                        Log.e("tag", dataStoreSubject.loadData().size() + "");
+                        dataStoreSubject.addData(new Schedule(subjectReponse.getData().get(i).getNumber(),
+                                subjectReponse.getData().get(i).getNameSubject(),
+                                day,
+                                month,
+                                year,
+                                dataUserStorage.loadData().nameFaculty,
+                                subjectReponse.getData().get(i).getNameTeacher(),
+                                subjectReponse.getData().get(i).getStartDate(),
+                                subjectReponse.getData().get(i).getEndDate()
+                        ));
+                        Log.e("tag", dataStoreSubject.loadData().get(0).getStartDate() + "");
                     } else {
                         System.out.println("Định dạng ngày không hợp lệ.");
                     }

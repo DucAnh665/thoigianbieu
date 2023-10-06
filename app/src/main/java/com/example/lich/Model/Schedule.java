@@ -2,10 +2,10 @@ package com.example.lich.Model;
 
 public class Schedule {
     int id;
-    String tenmon,ngay,thang,nam,khoa,giangvien;
+    String tenmon,ngay,thang,nam,khoa,giangvien,startDate,endDate;
 
 
-    public Schedule(int id, String tenmon, String ngay, String thang, String nam, String khoa, String giangvien) {
+    public Schedule(int id, String tenmon, String ngay, String thang, String nam, String khoa, String giangvien, String startDate, String endDate) {
         this.id = id;
         this.tenmon = tenmon;
         this.ngay = ngay;
@@ -13,8 +13,9 @@ public class Schedule {
         this.nam = nam;
         this.khoa = khoa;
         this.giangvien = giangvien;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
-
 
     public int getId() {
         return id;
@@ -70,5 +71,22 @@ public class Schedule {
 
     public void setGiangvien(String giangvien) {
         this.giangvien = giangvien;
+    }
+
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 }

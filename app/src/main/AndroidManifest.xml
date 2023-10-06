@@ -21,8 +21,21 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <receiver
+            android:name=".view.widget.WidgetCalendarEvent"
+            android:exported="false"
+            android:label="Sự kiện">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_calendar_event_info" />
+        </receiver>
+        <receiver
             android:name=".view.widget.WidgetCalendar"
-            android:exported="false">
+            android:exported="false"
+            android:label="Thời khóa biểu">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -68,6 +81,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service android:name=".service.SamOnlineService" />
     </application>
 

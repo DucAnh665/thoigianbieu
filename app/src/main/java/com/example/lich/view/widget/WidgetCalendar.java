@@ -15,14 +15,13 @@ import java.util.Date;
 public class WidgetCalendar extends AppWidgetProvider {
     private Handler handler = new Handler();
     private Runnable updateRunnable;
-
     private DataStoreSubject dataStoreSubject;
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_calendar);
-        views.setTextViewText(R.id.txt_time, new SimpleDateFormat("HH:mm:ss").format(new Date()));
+        views.setTextViewText(R.id.txt_time, new SimpleDateFormat("HH:mm").format(new Date()));
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
@@ -33,17 +32,19 @@ public class WidgetCalendar extends AppWidgetProvider {
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
-        updateRunnable = new Runnable() {
-            @Override
-            public void run() {
-                RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_calendar);
-                views.setTextViewText(R.id.txt_time, new SimpleDateFormat("HH:mm").format(new Date()));
-                appWidgetManager.updateAppWidget(appWidgetIds, views);
-                handler.postDelayed(this, 1000);
-            }
-        };
-
-        handler.post(updateRunnable);
+//        updateRunnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_calendar);
+//                views.setTextViewText(R.id.txt_time, new SimpleDateFormat("HH:mm").format(new Date()));
+//                views.setTextViewText(R.id.txtTimeCalendarBefore, "Tiết: " + dataStoreSubject.loadData().get(0).getId() + "");
+//                views.setTextViewText(R.id.txtContentCalendarBefore, dataStoreSubject.loadData().get(0).getTenmon());
+//                appWidgetManager.updateAppWidget(appWidgetIds, views);
+//                handler.postDelayed(this, 1000);
+//            }
+//        };
+//
+//        handler.post(updateRunnable);
     }
 
     @Override
@@ -53,8 +54,6 @@ public class WidgetCalendar extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         // Remove the update runnable when the last widget is disabled
-        if (updateRunnable != null) {
-            handler.removeCallbacks(updateRunnable);
-        }
+
     }
 }

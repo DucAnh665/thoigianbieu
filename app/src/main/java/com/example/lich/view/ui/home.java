@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.Manifest;
@@ -21,6 +23,7 @@ import com.example.lich.databinding.HomeCalendarBinding;
 import com.example.lich.service.SamOnlineService;
 import com.example.lich.shared.DataUserStorage;
 import com.example.lich.view.widget.WidgetManager;
+import com.example.lich.viewmodel.HomeViewModel;
 import com.example.lich.viewmodel.LoginViewModel;
 import com.squareup.picasso.Picasso;
 
@@ -36,6 +39,8 @@ public class home extends AppCompatActivity {
 
     HomeCalendarBinding binding;
     private LoginViewModel loginViewModel;
+
+    private HomeViewModel homeViewModel;
     private DataUserStorage dataUserStorage;
 
     private SpeechRecognizer speechRecognizer;
@@ -46,6 +51,7 @@ public class home extends AppCompatActivity {
         binding = HomeCalendarBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         dataUserStorage = new DataUserStorage(this);
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         Anhxa();
         nhandulieu();
     }
@@ -56,6 +62,28 @@ public class home extends AppCompatActivity {
     }
 
     public void Anhxa() {
+
+        homeViewModel.getIsLogout().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if (aBoolean) {
+                    dataUserStorage.clearData();
+                    startActivity(new Intent(home.this, Login.class));
+                    finish();
+                }
+            }
+        });
+        homeViewModel.getIsCheckStudent().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if (!aBoolean) {
+                    dataUserStorage.clearData();
+                    startActivity(new Intent(home.this, Login.class));
+                    finish();
+                }
+            }
+        });
+        homeViewModel.checkLogout(this, dataUserStorage.loadData().getCodeStudent());
         binding.btnUpdateUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,9 +117,7 @@ public class home extends AppCompatActivity {
         binding.Thongtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dataUserStorage.clearData();
-                startActivity(new Intent(home.this, Login.class));
-                finish();
+                homeViewModel.logOut(home.this, dataUserStorage.loadData().getCodeStudent());
             }
         });
 

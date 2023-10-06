@@ -27,9 +27,9 @@ public class listviewtkb extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityDetailScheduleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        dataStoreSubject = new DataStoreSubject(this);
         nhandulieu();
         setuptkb();
-        dataStoreSubject = new DataStoreSubject(this);
         binding.trove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +39,6 @@ public class listviewtkb extends AppCompatActivity {
         binding.lvtkb.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(listviewtkb.this, ngay, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -55,17 +54,17 @@ public class listviewtkb extends AppCompatActivity {
     }
 
     public void setuptkb() {
+        if (dataStoreSubject.loadData() != null && dataStoreSubject.loadData().size() > 0) {
+            da = new AdapterSchedule(R.layout.item_detail_schedule, listviewtkb.this, dataStoreSubject.loadData(), ngay, thang, nam);
+            for (int i = 0; i < dataStoreSubject.loadData().size(); i++)
+                if (dataStoreSubject.loadData().get(i).getNgay().equals(ngay) && dataStoreSubject.loadData().get(i).getThang().equals(thang) && dataStoreSubject.loadData().get(i).getNam().equals(nam)) {
 
-        da = new AdapterSchedule(R.layout.item_detail_schedule, listviewtkb.this, CustomCalendarSchedule.dulieu, ngay, thang, nam);
-        for (int i = 0; i < CustomCalendarSchedule.dulieu.size(); i++)
-            if (CustomCalendarSchedule.dulieu.get(i).getNgay().equals(ngay) && CustomCalendarSchedule.dulieu.get(i).getThang().equals(thang) && CustomCalendarSchedule.dulieu.get(i).getNam().equals(nam)) {
-
-            } else {
-                CustomCalendarSchedule.dulieu.remove(i);
-                da.notifyDataSetChanged();
-            }
-        binding.lvtkb.setAdapter(da);
-
+                } else {
+                    dataStoreSubject.loadData().remove(i);
+                    da.notifyDataSetChanged();
+                }
+            binding.lvtkb.setAdapter(da);
+        }
     }
 
 }

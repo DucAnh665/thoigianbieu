@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -103,6 +104,8 @@ public class CustomCalendarSchedule extends LinearLayout {
                 bd.putString("t1", String.valueOf(dayno));
                 bd.putString("t2", curmont);
                 bd.putString("t3", curyear);
+
+                Log.e(TAG, curmont + curyear + dayno);
                 intent.putExtras(bd);
                 context.startActivity(intent);
 

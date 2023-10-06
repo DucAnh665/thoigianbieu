@@ -36,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         initData();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //subjectViewModel.getSubject(this, dataUserStorage.loadData().getCodeStudent());
+    }
 
     private void initData() {
         dataUserStorage = new DataUserStorage(this);

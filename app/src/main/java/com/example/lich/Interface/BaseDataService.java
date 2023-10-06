@@ -42,4 +42,13 @@ public interface BaseDataService {
     Call<User> updateUser(@Field("codeStudent") String codeStudent, @Field("address") String address, @Field("birthday") String birthday);
 
 
+    @FormUrlEncoded
+    @POST(WSConfig.Api.LOGOUT)
+    Call<StatusResponse> logout(@Field("codeStudent") String codeStudent);
+
+
+    @FormUrlEncoded
+    @POST(WSConfig.Api.CHECKLOGIN)
+    Call<StatusResponse> checkLogin(@Field("codeStudent") String codeStudent);
+
 }

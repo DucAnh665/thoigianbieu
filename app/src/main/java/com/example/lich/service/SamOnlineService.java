@@ -189,6 +189,7 @@ public class SamOnlineService extends BaseService implements TimeService.TimerLi
                                 isCheckTime = false;
                             } else {
                                 isCheckTime = true;
+                                Log.e("Test",dataStoreSubject.loadData().get(i).getTenmon());
                                 WidgetManager.getInstance().updateCalendar(context, dataStoreSubject.loadData().get(i).getGiangvien(),
                                         dataStoreSubject.loadData().get(i).getTenmon(),
                                         "Thời gian: " + dataStoreSubject.loadData().get(i).getStartDate() + " -- " + dataStoreSubject.loadData().get(i).getEndDate()
@@ -203,7 +204,7 @@ public class SamOnlineService extends BaseService implements TimeService.TimerLi
                         if (dateFormat.parse(dayCurrent).after(dateFormat.parse(day))) {
                             long differenceInMilliseconds = dateFormat.parse(dayCurrent).getTime() - dateFormat.parse(day).getTime();
                             long differenceInDays = differenceInMilliseconds / (24 * 60 * 60 * 1000);
-                            if (differenceInDays <= 1) {
+                            if (differenceInDays ==1) {
                                 WidgetManager.getInstance().updateCalendar(context, dataStoreSubject.loadData().get(i).getGiangvien(), dataStoreSubject.loadData().get(i).getTenmon(), dayCurrent, "Giảng viên: ");
                                 isCheckDay = true;
                             } else {
@@ -213,9 +214,6 @@ public class SamOnlineService extends BaseService implements TimeService.TimerLi
                         throw new RuntimeException(e);
                     }
                 }
-            }
-            if (!isCheckDay) {
-                WidgetManager.getInstance().updateCalendar(context, "Không còn lịch nào cần thực hiện", "-------------------", "-------", " ");
             }
 
         }

@@ -64,8 +64,8 @@ public class LoginViewModel extends ViewModel {
         callApi.enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                UserResponse userResponse = response.body();
                 if (response.isSuccessful()) {
-                    UserResponse userResponse = response.body();
                     getIsLogin().setValue(true);
                     getDataUser().setValue(userResponse.getData());
                     dialog.dismiss();
@@ -81,7 +81,7 @@ public class LoginViewModel extends ViewModel {
                         public void findId(Dialog dialog) {
                             btnSend = dialog.findViewById(R.id.btn_send_again);
                             txtMessage = dialog.findViewById(R.id.txt_dialog_message);
-                            txtMessage.setText(response.body().getMassage());
+                            txtMessage.setText("Ứng dụng đã được đăng nhập ở thiết bị khác");
                         }
 
                         @Override

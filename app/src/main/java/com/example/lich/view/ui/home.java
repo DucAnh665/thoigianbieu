@@ -77,9 +77,9 @@ public class home extends AppCompatActivity {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if (!aBoolean) {
-                    dataUserStorage.clearData();
-                    startActivity(new Intent(home.this, Login.class));
-                    finish();
+                    // dataUserStorage.clearData();
+                    //  startActivity(new Intent(home.this, Login.class));
+                    // finish();
                 }
             }
         });
@@ -201,14 +201,10 @@ public class home extends AppCompatActivity {
                 }
 
                 if (message.contains("đăng xuất")) {
-                    startActivity(new Intent(home.this, Login.class));
-                    dataUserStorage.clearData();
-                    finish();
+                    homeViewModel.logOut(home.this, dataUserStorage.loadData().getCodeStudent());
                 }
                 if (message.contains("Đổi tài khoản")) {
-                    startActivity(new Intent(home.this, Login.class));
-                    dataUserStorage.clearData();
-                    finish();
+                    homeViewModel.logOut(home.this, dataUserStorage.loadData().getCodeStudent());
                 }
 
             }

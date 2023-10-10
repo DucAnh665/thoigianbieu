@@ -255,13 +255,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/ic_tym"></ImageView>
+            android:background="@ddr"></ImageView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Dương ơi! Ra trường thôi "
+            android:text="ICTU vì yêu mà đến "
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="italic"></TextView>

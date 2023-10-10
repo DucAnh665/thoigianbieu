@@ -69,7 +69,7 @@ public class AdapterSchedule extends BaseAdapter {
         if (list.getNgay().equals(ngay) && list.getThang().equals(thang) && list.getNam().equals(nam)) {
             hodel.tenmon.setText(list.getTenmon());
             hodel.index.setText("Tiết: " + i + 1 + "");
-            hodel.thoigian.setText(list.getNgay() + "/" + list.getThang() + "/" + list.getNam());
+            hodel.thoigian.setText("Thời gian bắt đầu: " + list.getStartDate() + " - " + list.getEndDate());
             hodel.sotinchi.setText("Số tín: " + list.getId());
             hodel.nameTeacher.setText("Giảng viên: " + list.getGiangvien());
         } else {
